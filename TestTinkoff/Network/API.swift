@@ -17,16 +17,8 @@ class API {
     private let domain = Constants.domain
     private let apiVersion = Constants.apiVersion
     
-    func request(_ method: APIMethod) {
-        let request = GetRequest(domain: domain, path: apiVersion + method.path, parameters: method.parameters)
-        request.send { result in
-            switch result {
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-            case .success(let data):
-                print("Data: \(data)")
-            }
-        }
+    func request(_ method: APIMethod) -> Request {
+        return GetRequest(domain: domain, path: apiVersion + method.path, parameters: method.parameters)
     }
     
 }

@@ -26,4 +26,8 @@ class JsonParser {
         return dictionary[key] as? String
     }
     
+    static func getData(from object: Any) -> Data? {
+        return try? JSONSerialization.data(withJSONObject: object, options: [])
+    }
+    
 }

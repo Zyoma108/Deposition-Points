@@ -33,7 +33,12 @@ class GetRequest: Request {
                 if let errorMessage = JsonParser.getStringWith(key: "errorMessage", from: data) {
                     completion(.failure(error: StringError(description: errorMessage)))
                 } else {
-                    completion(.success(data: data))
+                    if let payload = JsonParser.getObjectWith(key: "payload", from: data),
+                        let payloadData = JsonParser.getData(from: payload) {
+                        completion(.success(data: payloadData))
+                    } else {
+                        completion(.failure(error: StringError(description: "Unable to parse payload value")))
+                    }
                 }
             } else {
                 completion(.failure(error: StringError(description: "Unknown Error")))
