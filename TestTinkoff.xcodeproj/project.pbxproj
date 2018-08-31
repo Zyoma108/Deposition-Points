@@ -16,6 +16,8 @@
 		EA4906932139A6DD009685E8 /* PartnersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906922139A6DD009685E8 /* PartnersInteractor.swift */; };
 		EA4906962139AA62009685E8 /* Partner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906952139AA62009685E8 /* Partner.swift */; };
 		EA4906982139ADE2009685E8 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906972139ADE2009685E8 /* Interactor.swift */; };
+		EA49069A2139B0C5009685E8 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906992139B0C5009685E8 /* Point.swift */; };
+		EA49069C2139B167009685E8 /* PointInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49069B2139B167009685E8 /* PointInteractor.swift */; };
 		EAF282652139600D00951C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282642139600D00951C9A /* AppDelegate.swift */; };
 		EAF282672139600D00951C9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282662139600D00951C9A /* ViewController.swift */; };
 		EAF2826A2139600D00951C9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF282682139600D00951C9A /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 		EA4906922139A6DD009685E8 /* PartnersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersInteractor.swift; sourceTree = "<group>"; };
 		EA4906952139AA62009685E8 /* Partner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Partner.swift; sourceTree = "<group>"; };
 		EA4906972139ADE2009685E8 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		EA4906992139B0C5009685E8 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		EA49069B2139B167009685E8 /* PointInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInteractor.swift; sourceTree = "<group>"; };
 		EAF282612139600D00951C9A /* TestTinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF282642139600D00951C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF282662139600D00951C9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			children = (
 				EA4906972139ADE2009685E8 /* Interactor.swift */,
 				EA4906922139A6DD009685E8 /* PartnersInteractor.swift */,
+				EA49069B2139B167009685E8 /* PointInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -82,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				EA4906952139AA62009685E8 /* Partner.swift */,
+				EA4906992139B0C5009685E8 /* Point.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,6 +220,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA49069C2139B167009685E8 /* PointInteractor.swift in Sources */,
+				EA49069A2139B0C5009685E8 /* Point.swift in Sources */,
 				EAF282672139600D00951C9A /* ViewController.swift in Sources */,
 				EAF2828021396B0900951C9A /* Dictionary+QueryString.swift in Sources */,
 				EA4906902139A497009685E8 /* JsonParser.swift in Sources */,

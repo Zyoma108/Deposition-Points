@@ -11,7 +11,7 @@ import Foundation
 enum TinkoffAPIMethod: APIMethod {
     
     case depositionPartners(accountType: String)
-    case depositionPoints(latitude: Double, longitude: Double)
+    case depositionPoints(latitude: Double, longitude: Double, radius: Int)
 
     var path: String {
         switch self {
@@ -27,9 +27,10 @@ enum TinkoffAPIMethod: APIMethod {
         switch self {
         case .depositionPartners(let accountType):
             result["accountType"] = accountType
-        case .depositionPoints(let latitude, let longitude):
+        case .depositionPoints(let latitude, let longitude, let radius):
             result["latitude"] = String(latitude)
             result["longitude"] = String(longitude)
+            result["radius"] = String(radius)
         }
         return result
     }
