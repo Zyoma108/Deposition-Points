@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class PartnersInteractor: Interactor {
+    
+    typealias T = [Partner]
+    
+    var request: Request {
+        let method = TinkoffAPIMethod.depositionPartners(accountType: "Credit")
+        return api.request(method)
+    }
+    
+}
