@@ -13,6 +13,9 @@
 		EAF2826D2139600D00951C9A /* TestTinkoff.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAF2826B2139600D00951C9A /* TestTinkoff.xcdatamodeld */; };
 		EAF2826F2139600F00951C9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF2826E2139600F00951C9A /* Assets.xcassets */; };
 		EAF282722139600F00951C9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF282702139600F00951C9A /* LaunchScreen.storyboard */; };
+		EAF2827B213960F700951C9A /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2827A213960F700951C9A /* GetRequest.swift */; };
+		EAF2827D213966BB00951C9A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2827C213966BB00951C9A /* Request.swift */; };
+		EAF2828021396B0900951C9A /* Dictionary+QueryString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2827F21396B0900951C9A /* Dictionary+QueryString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		EAF2826E2139600F00951C9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAF282712139600F00951C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAF282732139600F00951C9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAF2827A213960F700951C9A /* GetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
+		EAF2827C213966BB00951C9A /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		EAF2827F21396B0900951C9A /* Dictionary+QueryString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+QueryString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 		EAF282632139600D00951C9A /* TestTinkoff */ = {
 			isa = PBXGroup;
 			children = (
+				EAF2827E21396AE300951C9A /* Extensions */,
+				EAF28279213960D500951C9A /* Network */,
 				EAF282642139600D00951C9A /* AppDelegate.swift */,
 				EAF282662139600D00951C9A /* ViewController.swift */,
 				EAF282682139600D00951C9A /* Main.storyboard */,
@@ -65,6 +73,23 @@
 				EAF2826B2139600D00951C9A /* TestTinkoff.xcdatamodeld */,
 			);
 			path = TestTinkoff;
+			sourceTree = "<group>";
+		};
+		EAF28279213960D500951C9A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EAF2827C213966BB00951C9A /* Request.swift */,
+				EAF2827A213960F700951C9A /* GetRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EAF2827E21396AE300951C9A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EAF2827F21396B0900951C9A /* Dictionary+QueryString.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +164,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAF282672139600D00951C9A /* ViewController.swift in Sources */,
+				EAF2828021396B0900951C9A /* Dictionary+QueryString.swift in Sources */,
 				EAF2826D2139600D00951C9A /* TestTinkoff.xcdatamodeld in Sources */,
+				EAF2827D213966BB00951C9A /* Request.swift in Sources */,
 				EAF282652139600D00951C9A /* AppDelegate.swift in Sources */,
+				EAF2827B213960F700951C9A /* GetRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
