@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA490684213996D1009685E8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA490683213996D1009685E8 /* API.swift */; };
+		EA49068621399897009685E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068521399897009685E8 /* Constants.swift */; };
+		EA49068821399A9E009685E8 /* APIMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068721399A9E009685E8 /* APIMethod.swift */; };
+		EA49068A21399D58009685E8 /* TinkoffAPIMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068921399D58009685E8 /* TinkoffAPIMethod.swift */; };
+		EA49068C2139A3E5009685E8 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068B2139A3E5009685E8 /* StringError.swift */; };
+		EA4906902139A497009685E8 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068F2139A497009685E8 /* JsonParser.swift */; };
 		EAF282652139600D00951C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282642139600D00951C9A /* AppDelegate.swift */; };
 		EAF282672139600D00951C9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282662139600D00951C9A /* ViewController.swift */; };
 		EAF2826A2139600D00951C9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF282682139600D00951C9A /* Main.storyboard */; };
@@ -19,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA490683213996D1009685E8 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		EA49068521399897009685E8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EA49068721399A9E009685E8 /* APIMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMethod.swift; sourceTree = "<group>"; };
+		EA49068921399D58009685E8 /* TinkoffAPIMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinkoffAPIMethod.swift; sourceTree = "<group>"; };
+		EA49068B2139A3E5009685E8 /* StringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
+		EA49068F2139A497009685E8 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		EAF282612139600D00951C9A /* TestTinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF282642139600D00951C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF282662139600D00951C9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA49068E2139A484009685E8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EA49068F2139A497009685E8 /* JsonParser.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		EAF282582139600C00951C9A = {
 			isa = PBXGroup;
 			children = (
@@ -64,8 +84,10 @@
 			children = (
 				EAF2827E21396AE300951C9A /* Extensions */,
 				EAF28279213960D500951C9A /* Network */,
+				EA49068E2139A484009685E8 /* Utils */,
 				EAF282642139600D00951C9A /* AppDelegate.swift */,
 				EAF282662139600D00951C9A /* ViewController.swift */,
+				EA49068521399897009685E8 /* Constants.swift */,
 				EAF282682139600D00951C9A /* Main.storyboard */,
 				EAF2826E2139600F00951C9A /* Assets.xcassets */,
 				EAF282702139600F00951C9A /* LaunchScreen.storyboard */,
@@ -78,8 +100,12 @@
 		EAF28279213960D500951C9A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				EA49068B2139A3E5009685E8 /* StringError.swift */,
 				EAF2827C213966BB00951C9A /* Request.swift */,
 				EAF2827A213960F700951C9A /* GetRequest.swift */,
+				EA49068721399A9E009685E8 /* APIMethod.swift */,
+				EA49068921399D58009685E8 /* TinkoffAPIMethod.swift */,
+				EA490683213996D1009685E8 /* API.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -165,10 +191,16 @@
 			files = (
 				EAF282672139600D00951C9A /* ViewController.swift in Sources */,
 				EAF2828021396B0900951C9A /* Dictionary+QueryString.swift in Sources */,
+				EA4906902139A497009685E8 /* JsonParser.swift in Sources */,
 				EAF2826D2139600D00951C9A /* TestTinkoff.xcdatamodeld in Sources */,
+				EA49068C2139A3E5009685E8 /* StringError.swift in Sources */,
+				EA49068A21399D58009685E8 /* TinkoffAPIMethod.swift in Sources */,
 				EAF2827D213966BB00951C9A /* Request.swift in Sources */,
 				EAF282652139600D00951C9A /* AppDelegate.swift in Sources */,
+				EA490684213996D1009685E8 /* API.swift in Sources */,
 				EAF2827B213960F700951C9A /* GetRequest.swift in Sources */,
+				EA49068621399897009685E8 /* Constants.swift in Sources */,
+				EA49068821399A9E009685E8 /* APIMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

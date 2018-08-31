@@ -10,11 +10,13 @@ import Foundation
 
 class GetRequest: Request {
     
-    let endpoint: String
+    let domain: String
+    let path: String
     let parameters: [String: String]
     
-    init(endpoint: String, parameters: [String: String]) {
-        self.endpoint = endpoint
+    init(domain: String, path: String, parameters: [String: String]) {
+        self.domain = domain
+        self.path = path
         self.parameters = parameters
     }
     
@@ -27,16 +29,21 @@ class GetRequest: Request {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(error: error))
-            }
-            if let data = data {
-                completion(.success(data: data))
+            } else if let data = data {
+                if let errorMessage = JsonParser.getStringWith(key: "errorMessage", from: data) {
+                    completion(.failure(error: StringError(description: errorMessage)))
+                } else {
+                    completion(.success(data: data))
+                }
+            } else {
+                completion(.failure(error: StringError(description: "Unknown Error")))
             }
         }
         task.resume()
     }
     
     private var urlString: String {
-        var result = endpoint
+        var result = domain + "/" + path
         if !parameters.isEmpty {
             result += "?" + parameters.queryString
         }
