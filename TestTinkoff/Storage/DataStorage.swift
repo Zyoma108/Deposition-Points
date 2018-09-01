@@ -45,8 +45,15 @@ class DataStorage {
         }
     }
     
-    func save() {
-        appDelegate.saveContext()
+    func entity<T: NSManagedObject>(type: T.Type) -> T? {
+        guard let description = NSEntityDescription.entity(forEntityName: String(describing: type), in: context) else {
+            assertionFailure("Can't create entity description")
+            return nil
+        }
+        return T(entity: description, insertInto: context)
     }
     
+    private func save() {
+        appDelegate.saveContext()
+    }
 }
