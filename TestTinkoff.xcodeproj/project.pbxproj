@@ -18,6 +18,7 @@
 		EA4906982139ADE2009685E8 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906972139ADE2009685E8 /* Interactor.swift */; };
 		EA49069A2139B0C5009685E8 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906992139B0C5009685E8 /* Point.swift */; };
 		EA49069C2139B167009685E8 /* PointInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49069B2139B167009685E8 /* PointInteractor.swift */; };
+		EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD63213AA410000804B3 /* DataStorage.swift */; };
 		EAF282652139600D00951C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282642139600D00951C9A /* AppDelegate.swift */; };
 		EAF282672139600D00951C9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282662139600D00951C9A /* ViewController.swift */; };
 		EAF2826A2139600D00951C9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF282682139600D00951C9A /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		EA4906972139ADE2009685E8 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		EA4906992139B0C5009685E8 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		EA49069B2139B167009685E8 /* PointInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInteractor.swift; sourceTree = "<group>"; };
+		EAC6AD63213AA410000804B3 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		EAF282612139600D00951C9A /* TestTinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF282642139600D00951C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF282662139600D00951C9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,14 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		EAC6AD62213AA3F4000804B3 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				EAC6AD63213AA410000804B3 /* DataStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		EAF282582139600C00951C9A = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +144,7 @@
 				EAF2827E21396AE300951C9A /* Extensions */,
 				EAF28279213960D500951C9A /* Network */,
 				EA4906912139A6A4009685E8 /* Interactor */,
+				EAC6AD62213AA3F4000804B3 /* Storage */,
 				EA4906942139A6EF009685E8 /* Model */,
 				EA49068E2139A484009685E8 /* Utils */,
 				EAF282642139600D00951C9A /* AppDelegate.swift */,
@@ -239,6 +250,7 @@
 				EA49069C2139B167009685E8 /* PointInteractor.swift in Sources */,
 				EA49069A2139B0C5009685E8 /* Point.swift in Sources */,
 				EAF282672139600D00951C9A /* ViewController.swift in Sources */,
+				EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */,
 				EAF2828021396B0900951C9A /* Dictionary+QueryString.swift in Sources */,
 				EA4906902139A497009685E8 /* JsonParser.swift in Sources */,
 				EAF2826D2139600D00951C9A /* TestTinkoff.xcdatamodeld in Sources */,

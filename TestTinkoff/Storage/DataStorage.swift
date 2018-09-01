@@ -25,16 +25,22 @@ class DataStorage {
         appDelegate = UIApplication.shared.delegate as? AppDelegate
     }
     
-    func fetch<T: NSFetchRequestResult>(request: NSFetchRequest<T>, completion: @escaping ((_ data: [T]) -> Void)) {
+    func fetch<T: NSFetchRequestResult>(request: NSFetchRequest<T>,
+                                        completionQueue queue: DispatchQueue,
+                                        completion: @escaping ((_ data: [T]) -> Void)) {
         readQueue.async { [weak self] in
             guard let `self` = self else { return }
             
             do {
                 let reuslt = try self.context.fetch(request)
-                completion(reuslt)
+                queue.async {
+                    completion(reuslt)
+                }
             } catch {
                 print(error.localizedDescription)
-                completion([])
+                queue.async {
+                    completion([])
+                }
             }
         }
     }
