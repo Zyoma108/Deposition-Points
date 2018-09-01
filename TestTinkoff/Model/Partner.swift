@@ -16,3 +16,14 @@ struct Partner: Decodable {
     let pointType: String
     
 }
+
+extension Partner {
+    
+    func save(to entity: PartnerEntity) {
+        entity.id = self.id
+        entity.name = self.name
+        entity.picture = self.picture
+        entity.pointType = self.pointType
+    }
+    
+}
