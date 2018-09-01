@@ -88,8 +88,28 @@
 			children = (
 				EA4906952139AA62009685E8 /* Partner.swift */,
 				EA4906992139B0C5009685E8 /* Point.swift */,
+				EA49068B2139A3E5009685E8 /* StringError.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EAC6AD60213AA389000804B3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				EA49068721399A9E009685E8 /* APIMethod.swift */,
+				EA49068921399D58009685E8 /* TinkoffAPIMethod.swift */,
+				EA490683213996D1009685E8 /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		EAC6AD61213AA3A2000804B3 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				EAF2827C213966BB00951C9A /* Request.swift */,
+				EAF2827A213960F700951C9A /* GetRequest.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		EAF282582139600C00951C9A = {
@@ -131,12 +151,8 @@
 		EAF28279213960D500951C9A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				EA49068B2139A3E5009685E8 /* StringError.swift */,
-				EAF2827C213966BB00951C9A /* Request.swift */,
-				EAF2827A213960F700951C9A /* GetRequest.swift */,
-				EA49068721399A9E009685E8 /* APIMethod.swift */,
-				EA49068921399D58009685E8 /* TinkoffAPIMethod.swift */,
-				EA490683213996D1009685E8 /* API.swift */,
+				EAC6AD61213AA3A2000804B3 /* Request */,
+				EAC6AD60213AA389000804B3 /* API */,
 			);
 			path = Network;
 			sourceTree = "<group>";
