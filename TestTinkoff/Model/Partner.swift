@@ -13,12 +13,6 @@ struct Partner: Decodable {
     let id: String
     let name: String
     let picture: String
-    let url: String
-    let hasLocations: Bool
-    let isMomentary: Bool
-    let depositionDuration: String
-    let limitations: String
     let pointType: String
-    let description: String
     
 }
