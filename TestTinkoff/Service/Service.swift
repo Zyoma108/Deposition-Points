@@ -1,5 +1,5 @@
 //
-//  Interactor.swift
+//  Service.swift
 //  TestTinkoff
 //
 //  Created by Roman Sentsov on 31.08.2018.
@@ -8,14 +8,14 @@
 
 import Foundation
 
-enum InteractorResult<T> {
+enum ServiceResult<T> {
     
     case failure(error: Error)
     case success(result: T)
     
 }
 
-protocol Interactor {
+protocol Service {
     
     associatedtype T: Decodable
     
@@ -23,9 +23,9 @@ protocol Interactor {
     
 }
 
-extension Interactor {
+extension Service {
     
-    func receive(_ completion: @escaping ((_ result: InteractorResult<T>) -> Void)) {
+    func receive(_ completion: @escaping ((_ result: ServiceResult<T>) -> Void)) {
         request.send { result in
             switch result {
             case .success(let data):

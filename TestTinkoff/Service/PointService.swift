@@ -1,5 +1,5 @@
 //
-//  PointInteractor.swift
+//  PointService.swift
 //  TestTinkoff
 //
 //  Created by Roman Sentsov on 31.08.2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PointInteractor: Interactor {
+class PointService: Service {
     
     typealias T = [Point]
     

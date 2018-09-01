@@ -13,11 +13,11 @@
 		EA49068A21399D58009685E8 /* TinkoffAPIMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068921399D58009685E8 /* TinkoffAPIMethod.swift */; };
 		EA49068C2139A3E5009685E8 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068B2139A3E5009685E8 /* StringError.swift */; };
 		EA4906902139A497009685E8 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068F2139A497009685E8 /* JsonParser.swift */; };
-		EA4906932139A6DD009685E8 /* PartnersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906922139A6DD009685E8 /* PartnersInteractor.swift */; };
+		EA4906932139A6DD009685E8 /* PartnersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906922139A6DD009685E8 /* PartnersService.swift */; };
 		EA4906962139AA62009685E8 /* Partner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906952139AA62009685E8 /* Partner.swift */; };
-		EA4906982139ADE2009685E8 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906972139ADE2009685E8 /* Interactor.swift */; };
+		EA4906982139ADE2009685E8 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906972139ADE2009685E8 /* Service.swift */; };
 		EA49069A2139B0C5009685E8 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906992139B0C5009685E8 /* Point.swift */; };
-		EA49069C2139B167009685E8 /* PointInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49069B2139B167009685E8 /* PointInteractor.swift */; };
+		EA49069C2139B167009685E8 /* PointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49069B2139B167009685E8 /* PointService.swift */; };
 		EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD63213AA410000804B3 /* DataStorage.swift */; };
 		EAF282652139600D00951C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282642139600D00951C9A /* AppDelegate.swift */; };
 		EAF282672139600D00951C9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282662139600D00951C9A /* ViewController.swift */; };
@@ -37,11 +37,11 @@
 		EA49068921399D58009685E8 /* TinkoffAPIMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinkoffAPIMethod.swift; sourceTree = "<group>"; };
 		EA49068B2139A3E5009685E8 /* StringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
 		EA49068F2139A497009685E8 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
-		EA4906922139A6DD009685E8 /* PartnersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersInteractor.swift; sourceTree = "<group>"; };
+		EA4906922139A6DD009685E8 /* PartnersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnersService.swift; sourceTree = "<group>"; };
 		EA4906952139AA62009685E8 /* Partner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Partner.swift; sourceTree = "<group>"; };
-		EA4906972139ADE2009685E8 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		EA4906972139ADE2009685E8 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		EA4906992139B0C5009685E8 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
-		EA49069B2139B167009685E8 /* PointInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInteractor.swift; sourceTree = "<group>"; };
+		EA49069B2139B167009685E8 /* PointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointService.swift; sourceTree = "<group>"; };
 		EAC6AD63213AA410000804B3 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		EAF282612139600D00951C9A /* TestTinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF282642139600D00951C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,14 +75,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		EA4906912139A6A4009685E8 /* Interactor */ = {
+		EA4906912139A6A4009685E8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				EA4906972139ADE2009685E8 /* Interactor.swift */,
-				EA4906922139A6DD009685E8 /* PartnersInteractor.swift */,
-				EA49069B2139B167009685E8 /* PointInteractor.swift */,
+				EA4906972139ADE2009685E8 /* Service.swift */,
+				EA4906922139A6DD009685E8 /* PartnersService.swift */,
+				EA49069B2139B167009685E8 /* PointService.swift */,
 			);
-			path = Interactor;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		EA4906942139A6EF009685E8 /* Model */ = {
@@ -143,7 +143,7 @@
 			children = (
 				EAF2827E21396AE300951C9A /* Extensions */,
 				EAF28279213960D500951C9A /* Network */,
-				EA4906912139A6A4009685E8 /* Interactor */,
+				EA4906912139A6A4009685E8 /* Service */,
 				EAC6AD62213AA3F4000804B3 /* Storage */,
 				EA4906942139A6EF009685E8 /* Model */,
 				EA49068E2139A484009685E8 /* Utils */,
@@ -247,7 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA49069C2139B167009685E8 /* PointInteractor.swift in Sources */,
+				EA49069C2139B167009685E8 /* PointService.swift in Sources */,
 				EA49069A2139B0C5009685E8 /* Point.swift in Sources */,
 				EAF282672139600D00951C9A /* ViewController.swift in Sources */,
 				EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */,
@@ -262,8 +262,8 @@
 				EA490684213996D1009685E8 /* API.swift in Sources */,
 				EAF2827B213960F700951C9A /* GetRequest.swift in Sources */,
 				EA49068621399897009685E8 /* Constants.swift in Sources */,
-				EA4906982139ADE2009685E8 /* Interactor.swift in Sources */,
-				EA4906932139A6DD009685E8 /* PartnersInteractor.swift in Sources */,
+				EA4906982139ADE2009685E8 /* Service.swift in Sources */,
+				EA4906932139A6DD009685E8 /* PartnersService.swift in Sources */,
 				EA49068821399A9E009685E8 /* APIMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

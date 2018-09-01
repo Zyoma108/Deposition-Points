@@ -1,5 +1,5 @@
 //
-//  PartnersInteractor.swift
+//  PartnersService.swift
 //  TestTinkoff
 //
 //  Created by Roman Sentsov on 31.08.2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PartnersInteractor: Interactor {
+class PartnersService: Service {
     
     typealias T = [Partner]
     
