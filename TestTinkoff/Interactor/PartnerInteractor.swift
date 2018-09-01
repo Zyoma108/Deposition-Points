@@ -8,37 +8,21 @@
 
 import Foundation
 
+enum PartnerResult {
+    case success(partners: [PartnerEntity])
+    case failure(error: Error)
+}
+
 class PartnerInteractor {
     
-    func requestPartners() -> [PartnerEntity] {
-        let group = DispatchGroup()
+    func requestPartners() -> PartnerResult {
+        removeOldEntities()
         
-        // remove old entities
-        group.enter()
-        DataStorage.shared.remove(request: PartnerEntity.fetchRequest()) {
-            group.leave()
+        if let error = loadFromNetwork() {
+            return .failure(error: error)
         }
-        group.wait()
         
-        // make network request
-        group.enter()
-        let service = PartnersService()
-        service.receive { result in
-            switch result {
-            case .success(let result):
-                for partner in result {
-                    guard let entity = DataStorage.shared.entity(type: PartnerEntity.self) else { continue }
-                    partner.save(to: entity)
-                }
-                DataStorage.shared.save()
-            case .failure(let error):
-                print(error)
-            }
-            group.leave()
-        }
-        group.wait()
-        
-        return getPartners()
+        return .success(partners: getPartners())
     }
     
     func getPartners() -> [PartnerEntity] {
@@ -54,4 +38,36 @@ class PartnerInteractor {
         return entities
     }
     
+    private func loadFromNetwork() -> Error? {
+        let group = DispatchGroup()
+        let service = PartnersService()
+        var networkError: Error?
+        
+        group.enter()
+        service.receive { result in
+            switch result {
+            case .success(let result):
+                for partner in result {
+                    guard let entity = DataStorage.shared.entity(type: PartnerEntity.self) else { continue }
+                    partner.save(to: entity)
+                }
+                DataStorage.shared.save()
+            case .failure(let error):
+                networkError = error
+            }
+            group.leave()
+        }
+        group.wait()
+        return networkError
+    }
+    
+    private func removeOldEntities() {
+        let group = DispatchGroup()
+        
+        group.enter()
+        DataStorage.shared.remove(request: PartnerEntity.fetchRequest()) {
+            group.leave()
+        }
+        group.wait()
+    }
 }
