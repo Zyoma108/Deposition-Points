@@ -19,9 +19,17 @@ struct Point: Decodable {
     
     let partnerName: String
     let location: Location
-    let workHours: String?
-    let phones: String?
     let addressInfo: String?
-    let fullAddress: String?
 
 }
+
+extension Point {
+    
+    func save(to entity: PointEntity) {
+        entity.latitude = self.location.latitude
+        entity.longitude = self.location.longitude
+        entity.addressInfo = self.addressInfo
+    }
+    
+}
+

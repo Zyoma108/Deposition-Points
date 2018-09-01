@@ -7,12 +7,13 @@
         <attribute name="pointType" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="PointEntity" representedClassName="PointEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="addressInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="partner" maxCount="1" deletionRule="Nullify" destinationEntity="PartnerEntity" syncable="YES"/>
     </entity>
     <elements>
         <element name="PartnerEntity" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="PointEntity" positionX="-54" positionY="18" width="128" height="90"/>
+        <element name="PointEntity" positionX="-54" positionY="18" width="128" height="105"/>
     </elements>
 </model>
