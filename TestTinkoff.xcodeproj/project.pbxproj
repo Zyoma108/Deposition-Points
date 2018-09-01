@@ -20,6 +20,7 @@
 		EA49069C2139B167009685E8 /* PointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49069B2139B167009685E8 /* PointService.swift */; };
 		EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD63213AA410000804B3 /* DataStorage.swift */; };
 		EAC6AD69213AF759000804B3 /* PartnerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD68213AF759000804B3 /* PartnerInteractor.swift */; };
+		EAC6AD6B213B0514000804B3 /* PointInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD6A213B0514000804B3 /* PointInteractor.swift */; };
 		EAF282652139600D00951C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282642139600D00951C9A /* AppDelegate.swift */; };
 		EAF282672139600D00951C9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282662139600D00951C9A /* ViewController.swift */; };
 		EAF2826A2139600D00951C9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF282682139600D00951C9A /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		EA49069B2139B167009685E8 /* PointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointService.swift; sourceTree = "<group>"; };
 		EAC6AD63213AA410000804B3 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		EAC6AD68213AF759000804B3 /* PartnerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerInteractor.swift; sourceTree = "<group>"; };
+		EAC6AD6A213B0514000804B3 /* PointInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInteractor.swift; sourceTree = "<group>"; };
 		EAF282612139600D00951C9A /* TestTinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF282642139600D00951C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF282662139600D00951C9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				EAC6AD68213AF759000804B3 /* PartnerInteractor.swift */,
+				EAC6AD6A213B0514000804B3 /* PointInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				EA49068A21399D58009685E8 /* TinkoffAPIMethod.swift in Sources */,
 				EAF2827D213966BB00951C9A /* Request.swift in Sources */,
 				EAF282652139600D00951C9A /* AppDelegate.swift in Sources */,
+				EAC6AD6B213B0514000804B3 /* PointInteractor.swift in Sources */,
 				EA490684213996D1009685E8 /* API.swift in Sources */,
 				EAF2827B213960F700951C9A /* GetRequest.swift in Sources */,
 				EA49068621399897009685E8 /* Constants.swift in Sources */,

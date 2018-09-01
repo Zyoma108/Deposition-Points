@@ -44,14 +44,10 @@ class PartnerInteractor {
         var networkError: Error?
         
         group.enter()
-        service.receive { result in
+        service.receive { [weak self] result in
             switch result {
             case .success(let result):
-                for partner in result {
-                    guard let entity = DataStorage.shared.entity(type: PartnerEntity.self) else { continue }
-                    partner.save(to: entity)
-                }
-                DataStorage.shared.save()
+                self?.savePartners(result)
             case .failure(let error):
                 networkError = error
             }
@@ -59,6 +55,14 @@ class PartnerInteractor {
         }
         group.wait()
         return networkError
+    }
+    
+    private func savePartners(_ partners: [Partner]) {
+        for partner in partners {
+            guard let entity = DataStorage.shared.entity(type: PartnerEntity.self) else { continue }
+            partner.save(to: entity)
+        }
+        DataStorage.shared.save()
     }
     
     private func removeOldEntities() {
