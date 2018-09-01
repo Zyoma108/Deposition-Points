@@ -10,14 +10,13 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="picture" attributeType="String" syncable="YES"/>
         <attribute name="pointType" attributeType="String" syncable="YES"/>
-        <relationship name="points" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PointEntity" inverseName="partner" inverseEntity="PointEntity" syncable="YES"/>
     </entity>
     <entity name="PointEntity" representedClassName="PointEntity" syncable="YES" codeGenerationType="class">
         <relationship name="location" maxCount="1" deletionRule="Nullify" destinationEntity="LocationEntity" inverseName="point" inverseEntity="LocationEntity" syncable="YES"/>
-        <relationship name="partner" maxCount="1" deletionRule="Nullify" destinationEntity="PartnerEntity" inverseName="points" inverseEntity="PartnerEntity" syncable="YES"/>
+        <relationship name="partner" maxCount="1" deletionRule="Nullify" destinationEntity="PartnerEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PartnerEntity" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="PartnerEntity" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="PointEntity" positionX="-54" positionY="18" width="128" height="75"/>
         <element name="LocationEntity" positionX="-45" positionY="36" width="128" height="90"/>
     </elements>

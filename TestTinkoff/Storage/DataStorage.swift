@@ -23,22 +23,27 @@ class DataStorage {
     
     private init() {}
     
-    func fetch<T: NSFetchRequestResult>(request: NSFetchRequest<T>,
-                                        completionQueue queue: DispatchQueue,
-                                        completion: @escaping ((_ data: [T]) -> Void)) {
-        readQueue.async { [weak self] in
-            guard let `self` = self else { return }
-            
+    func fetch<T: NSFetchRequestResult>(request: NSFetchRequest<T>, completion: @escaping ((_ data: [T]) -> Void)) {
+        readQueue.async { [unowned self] in
             do {
                 let reuslt = try self.context.fetch(request)
-                queue.async {
-                    completion(reuslt)
-                }
+                completion(reuslt)
             } catch {
                 print(error.localizedDescription)
-                queue.async {
-                    completion([])
+                completion([])
+            }
+        }
+    }
+    
+    func remove<T: NSFetchRequestResult>(request: NSFetchRequest<T>, completion: @escaping (() -> Void)) {
+        fetch(request: request) { [unowned self] results in
+            self.writeQueue.async { [unowned self] in
+                for result in results {
+                    guard let object = result as? NSManagedObject else { continue }
+                    self.context.delete(object)
                 }
+                self.save()
+                completion()
             }
         }
     }
@@ -51,7 +56,7 @@ class DataStorage {
         return T(entity: description, insertInto: context)
     }
     
-    private func save() {
+    func save() {
         appDelegate.saveContext()
     }
 }
