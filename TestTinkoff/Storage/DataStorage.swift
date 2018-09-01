@@ -12,18 +12,16 @@ import CoreData
 class DataStorage {
     
     static let shared = DataStorage()
+    weak var appDelegate: AppDelegate!
     
     private let writeQueue = DispatchQueue(label: "write_serial_queue")
     private let readQueue = DispatchQueue(label: "read_serial_queue")
     
-    private weak var appDelegate: AppDelegate!
     private var context: NSManagedObjectContext {
         return appDelegate.persistentContainer.viewContext
     }
     
-    private init() {
-        appDelegate = UIApplication.shared.delegate as? AppDelegate
-    }
+    private init() {}
     
     func fetch<T: NSFetchRequestResult>(request: NSFetchRequest<T>,
                                         completionQueue queue: DispatchQueue,
