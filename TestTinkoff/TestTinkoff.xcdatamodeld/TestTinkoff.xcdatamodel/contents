@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="LocationEntity" representedClassName="LocationEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="point" maxCount="1" deletionRule="Nullify" destinationEntity="PointEntity" inverseName="location" inverseEntity="PointEntity" syncable="YES"/>
-    </entity>
     <entity name="PartnerEntity" representedClassName="PartnerEntity" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
@@ -12,12 +7,12 @@
         <attribute name="pointType" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="PointEntity" representedClassName="PointEntity" syncable="YES" codeGenerationType="class">
-        <relationship name="location" maxCount="1" deletionRule="Nullify" destinationEntity="LocationEntity" inverseName="point" inverseEntity="LocationEntity" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="partner" maxCount="1" deletionRule="Nullify" destinationEntity="PartnerEntity" syncable="YES"/>
     </entity>
     <elements>
         <element name="PartnerEntity" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="PointEntity" positionX="-54" positionY="18" width="128" height="75"/>
-        <element name="LocationEntity" positionX="-45" positionY="36" width="128" height="90"/>
+        <element name="PointEntity" positionX="-54" positionY="18" width="128" height="90"/>
     </elements>
 </model>
