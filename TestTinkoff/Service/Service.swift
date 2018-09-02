@@ -11,7 +11,7 @@ import Foundation
 enum ServiceResult<T> {
     
     case failure(error: Error)
-    case success(result: T)
+    case success(result: [T])
     
 }
 
@@ -31,7 +31,7 @@ extension Service {
             case .success(let data):
                 let decoder = JSONDecoder()
                 do {
-                    let result = try decoder.decode(T.self, from: data)
+                    let result = try decoder.decode([T].self, from: data)
                     completion(.success(result: result))
                 } catch {
                     completion(.failure(error: error))

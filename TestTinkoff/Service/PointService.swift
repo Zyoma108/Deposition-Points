@@ -10,7 +10,7 @@ import Foundation
 
 class PointService: Service {
     
-    typealias T = [Point]
+    typealias T = Point
     
     private let latitude: Double
     private let longitude: Double

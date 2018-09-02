@@ -7,57 +7,18 @@
 //
 
 import Foundation
+import CoreData
 
-enum PartnerResult {
-    case success(partners: [PartnerEntity])
-    case failure(error: Error)
-}
-
-class PartnerInteractor {
+class PartnerInteractor: Interactor {
     
-    func requestPartners() -> PartnerResult {
-        removeOldEntities()
-        
-        if let error = loadFromNetwork() {
-            return .failure(error: error)
-        }
-        
-        return .success(partners: getPartners())
-    }
+    typealias EntityType = PartnerEntity
+    typealias ServiceType = PartnersService
     
-    func getPartners() -> [PartnerEntity] {
-        let group = DispatchGroup()
-        var entities = [PartnerEntity]()
-        
-        group.enter()
-        DataStorage.shared.fetch(request: PartnerEntity.fetchRequest()) { result in
-            entities = result
-            group.leave()
-        }
-        group.wait()
-        return entities
-    }
+    var service: PartnersService { return PartnersService() }
+    var fetchRequest: NSFetchRequest<PartnerEntity> { return PartnerEntity.fetchRequest() }
     
-    private func loadFromNetwork() -> Error? {
-        let group = DispatchGroup()
-        let service = PartnersService()
-        var networkError: Error?
-        
-        group.enter()
-        service.receive { [weak self] result in
-            switch result {
-            case .success(let result):
-                self?.savePartners(result)
-            case .failure(let error):
-                networkError = error
-            }
-            group.leave()
-        }
-        group.wait()
-        return networkError
-    }
-    
-    private func savePartners(_ partners: [Partner]) {
+    func saveToStorage(_ data: [Decodable]) {
+        guard let partners = data as? [Partner] else { return }
         for partner in partners {
             guard let entity = DataStorage.shared.entity(type: PartnerEntity.self) else { continue }
             partner.save(to: entity)
@@ -65,13 +26,4 @@ class PartnerInteractor {
         DataStorage.shared.save()
     }
     
-    private func removeOldEntities() {
-        let group = DispatchGroup()
-        
-        group.enter()
-        DataStorage.shared.remove(request: PartnerEntity.fetchRequest()) {
-            group.leave()
-        }
-        group.wait()
-    }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class PartnersService: Service {
     
-    typealias T = [Partner]
+    typealias T = Partner
     
     var request: Request {
         let method = TinkoffAPIMethod.depositionPartners(accountType: "Credit")

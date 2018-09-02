@@ -7,57 +7,18 @@
 //
 
 import Foundation
+import CoreData
 
-enum PointResult {
-    case success(points: [PointEntity])
-    case failure(error: Error)
-}
-
-class PointInteractor {
+class PointInteractor: Interactor {
     
-    func requestPoints() -> PointResult {
-        removeOldEntities()
-        
-        if let error = loadFromNetwork() {
-            return .failure(error: error)
-        }
-        
-        return .success(points: getPoints())
-    }
+    typealias EntityType = PointEntity
+    typealias ServiceType = PointService
     
-    func getPoints() -> [PointEntity] {
-        let group = DispatchGroup()
-        var entities = [PointEntity]()
-        
-        group.enter()
-        DataStorage.shared.fetch(request: PointEntity.fetchRequest()) { result in
-            entities = result
-            group.leave()
-        }
-        group.wait()
-        return entities
-    }
+    var service: PointService { return PointService(latitude: 55.755786, longitude: 37.617633, radius: 1000) }
+    var fetchRequest: NSFetchRequest<PointEntity> { return PointEntity.fetchRequest() }
     
-    private func loadFromNetwork() -> Error? {
-        let group = DispatchGroup()
-        let service = PointService(latitude: 55.755786, longitude: 37.617633, radius: 1000)
-        var networkError: Error?
-        
-        group.enter()
-        service.receive { [weak self] result in
-            switch result {
-            case .success(let result):
-                self?.savePoints(result)
-            case .failure(let error):
-                networkError = error
-            }
-            group.leave()
-        }
-        group.wait()
-        return networkError
-    }
-    
-    private func savePoints(_ points: [Point]) {
+    func saveToStorage(_ data: [Decodable]) {
+        guard let points = data as? [Point] else { return }
         let group = DispatchGroup()
         var partners = [PartnerEntity]()
         
@@ -78,15 +39,5 @@ class PointInteractor {
         
         DataStorage.shared.save()
     }
-    
-    private func removeOldEntities() {
-        let group = DispatchGroup()
-        
-        group.enter()
-        DataStorage.shared.remove(request: PointEntity.fetchRequest()) {
-            group.leave()
-        }
-        group.wait()
-    }
-    
+
 }
