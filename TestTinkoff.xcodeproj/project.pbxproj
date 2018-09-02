@@ -101,6 +101,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EA729A5C213C184B00FB6909 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EAF282682139600D00951C9A /* Main.storyboard */,
+				EAF282702139600F00951C9A /* LaunchScreen.storyboard */,
+				EAF2826E2139600F00951C9A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EA729A5D213C187300FB6909 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				EAF282662139600D00951C9A /* ViewController.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		EA729A5E213C188100FB6909 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				EAF282642139600D00951C9A /* AppDelegate.swift */,
+				EA49068521399897009685E8 /* Constants.swift */,
+				EAF2826B2139600D00951C9A /* TestTinkoff.xcdatamodeld */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		EAC6AD60213AA389000804B3 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +185,8 @@
 		EAF282632139600D00951C9A /* TestTinkoff */ = {
 			isa = PBXGroup;
 			children = (
+				EA729A5C213C184B00FB6909 /* Resources */,
+				EA729A5D213C187300FB6909 /* Screen */,
 				EAF2827E21396AE300951C9A /* Extensions */,
 				EAF28279213960D500951C9A /* Network */,
 				EA4906912139A6A4009685E8 /* Service */,
@@ -164,14 +194,8 @@
 				EAC6AD67213AF740000804B3 /* Interactor */,
 				EA4906942139A6EF009685E8 /* Model */,
 				EA49068E2139A484009685E8 /* Utils */,
-				EAF282642139600D00951C9A /* AppDelegate.swift */,
-				EAF282662139600D00951C9A /* ViewController.swift */,
-				EA49068521399897009685E8 /* Constants.swift */,
-				EAF282682139600D00951C9A /* Main.storyboard */,
-				EAF2826E2139600F00951C9A /* Assets.xcassets */,
-				EAF282702139600F00951C9A /* LaunchScreen.storyboard */,
+				EA729A5E213C188100FB6909 /* SupportingFiles */,
 				EAF282732139600F00951C9A /* Info.plist */,
-				EAF2826B2139600D00951C9A /* TestTinkoff.xcdatamodeld */,
 			);
 			path = TestTinkoff;
 			sourceTree = "<group>";
