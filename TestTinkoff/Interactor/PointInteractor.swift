@@ -14,7 +14,17 @@ class PointInteractor: Interactor {
     typealias EntityType = PointEntity
     typealias ServiceType = PointService
     
-    var service: PointService { return PointService(latitude: 55.755786, longitude: 37.617633, radius: 1000) }
+    let latitude: Double
+    let longitude: Double
+    let radius: Int
+    
+    init(latitude: Double, longitude: Double, radius: Int) {
+        self.latitude = latitude
+        self.longitude = longitude
+        self.radius = radius
+    }
+    
+    var service: PointService { return PointService(latitude: latitude, longitude: longitude, radius: radius) }
     var fetchRequest: NSFetchRequest<PointEntity> { return PointEntity.fetchRequest() }
     
     func saveToStorage(_ data: [Decodable]) {
