@@ -19,6 +19,7 @@
 		EA49069A2139B0C5009685E8 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4906992139B0C5009685E8 /* Point.swift */; };
 		EA49069C2139B167009685E8 /* PointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49069B2139B167009685E8 /* PointService.swift */; };
 		EA729A5B213C069C00FB6909 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA729A5A213C069C00FB6909 /* Interactor.swift */; };
+		EA729A60213C29AA00FB6909 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA729A5F213C29AA00FB6909 /* MapViewModel.swift */; };
 		EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD63213AA410000804B3 /* DataStorage.swift */; };
 		EAC6AD69213AF759000804B3 /* PartnerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD68213AF759000804B3 /* PartnerInteractor.swift */; };
 		EAC6AD6B213B0514000804B3 /* PointInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD6A213B0514000804B3 /* PointInteractor.swift */; };
@@ -46,6 +47,7 @@
 		EA4906992139B0C5009685E8 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		EA49069B2139B167009685E8 /* PointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointService.swift; sourceTree = "<group>"; };
 		EA729A5A213C069C00FB6909 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		EA729A5F213C29AA00FB6909 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		EAC6AD63213AA410000804B3 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		EAC6AD68213AF759000804B3 /* PartnerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerInteractor.swift; sourceTree = "<group>"; };
 		EAC6AD6A213B0514000804B3 /* PointInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInteractor.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		EA729A5D213C187300FB6909 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				EA729A5F213C29AA00FB6909 /* MapViewModel.swift */,
 				EAF282662139600D00951C9A /* MapViewController.swift */,
 			);
 			path = Screen;
@@ -305,6 +308,7 @@
 				EAC6AD6B213B0514000804B3 /* PointInteractor.swift in Sources */,
 				EA490684213996D1009685E8 /* API.swift in Sources */,
 				EAF2827B213960F700951C9A /* GetRequest.swift in Sources */,
+				EA729A60213C29AA00FB6909 /* MapViewModel.swift in Sources */,
 				EA49068621399897009685E8 /* Constants.swift in Sources */,
 				EA4906982139ADE2009685E8 /* Service.swift in Sources */,
 				EA4906932139A6DD009685E8 /* PartnersService.swift in Sources */,
