@@ -14,11 +14,12 @@ enum InteractorResult<T: NSManagedObject> {
     case failure(error: Error)
 }
 
-
 protocol Interactor: class {
     
     associatedtype EntityType: NSManagedObject
     associatedtype ServiceType: Service
+    
+    typealias InteractorCompletion = (_ result: InteractorResult<EntityType>) -> Void
     
     var service: ServiceType { get }
     var fetchRequest: NSFetchRequest<EntityType> { get }
@@ -29,14 +30,22 @@ protocol Interactor: class {
 
 extension Interactor {
     
-    func requestData() -> InteractorResult<EntityType> {
-        removeOldEntities()
-        
-        if let error = loadFromNetwork() {
-            return .failure(error: error)
+    func requestData(completionQueue: DispatchQueue, _ completion: @escaping InteractorCompletion) {
+        let workQueue = DispatchQueue.global(qos: .userInteractive)
+        workQueue.async { [weak self] in
+            self?.removeOldEntities()
+            
+            if let error = self?.loadFromNetwork() {
+                completionQueue.async {
+                    completion(.failure(error: error))
+                }
+            }
+            
+            guard let data = self?.loadFromStorage() else { return }
+            completionQueue.async {
+                completion(.success(result: data))
+            }
         }
-        
-        return .success(result: loadFromStorage())
     }
     
     func loadFromNetwork() -> Error? {
