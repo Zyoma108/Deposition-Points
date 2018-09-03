@@ -40,8 +40,8 @@ class PointInteractor: Interactor {
         group.wait()
         
         points.forEach { point in
-            guard let entity = DataStorage.shared.entity(type: PointEntity.self),
-                let partner = partners.first(where: { $0.id! == point.partnerName }) else { return }
+            guard let partner = partners.first(where: { $0.id! == point.partnerName }),
+                let entity = DataStorage.shared.entity(type: PointEntity.self) else { return }
             
             point.save(to: entity)
             entity.partner = partner
