@@ -5,15 +5,16 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="picture" attributeType="String" syncable="YES"/>
         <attribute name="pointType" attributeType="String" syncable="YES"/>
+        <relationship name="points" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PointEntity" inverseName="partner" inverseEntity="PointEntity" syncable="YES"/>
     </entity>
     <entity name="PointEntity" representedClassName="PointEntity" syncable="YES" codeGenerationType="class">
         <attribute name="addressInfo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="partner" maxCount="1" deletionRule="Nullify" destinationEntity="PartnerEntity" syncable="YES"/>
+        <relationship name="partner" maxCount="1" deletionRule="Nullify" destinationEntity="PartnerEntity" inverseName="points" inverseEntity="PartnerEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PartnerEntity" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="PartnerEntity" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="PointEntity" positionX="-54" positionY="18" width="128" height="105"/>
     </elements>
 </model>

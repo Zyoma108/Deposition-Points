@@ -18,8 +18,14 @@ class MapViewModel {
     let partnerInteractor = PartnerInteractor()
     
     func requestPartners() {
+        print("Request partners")
         partnerInteractor.requestData(completionQueue: DispatchQueue.main, force: true) { result in
-            print(result)
+            switch result {
+            case .success(let result):
+                print("Received \(result.count) partners")
+            case .failure(let error):
+                print("Error: \(error)")
+            }
         }
     }
     

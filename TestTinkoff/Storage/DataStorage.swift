@@ -14,9 +14,6 @@ class DataStorage {
     static let shared = DataStorage()
     weak var appDelegate: AppDelegate!
     
-    private let writeQueue = DispatchQueue(label: "write_serial_queue")
-    private let readQueue = DispatchQueue(label: "read_serial_queue")
-    
     private var context: NSManagedObjectContext {
         return appDelegate.persistentContainer.viewContext
     }
@@ -24,7 +21,7 @@ class DataStorage {
     private init() {}
     
     func fetch<T: NSFetchRequestResult>(request: NSFetchRequest<T>, completion: @escaping ((_ data: [T]) -> Void)) {
-        readQueue.async { [unowned self] in
+        context.perform { [unowned self] in
             do {
                 let reuslt = try self.context.fetch(request)
                 completion(reuslt)
@@ -37,7 +34,7 @@ class DataStorage {
     
     func remove<T: NSFetchRequestResult>(request: NSFetchRequest<T>, completion: @escaping (() -> Void)) {
         fetch(request: request) { [unowned self] results in
-            self.writeQueue.async { [unowned self] in
+            self.context.perform { [unowned self] in
                 for result in results {
                     guard let object = result as? NSManagedObject else { continue }
                     self.context.delete(object)
@@ -57,7 +54,7 @@ class DataStorage {
     }
     
     func save(_ entityAllocationClosure: @escaping (() -> Void), _ completion: @escaping (() -> Void)) {
-        writeQueue.async {
+        context.perform { [unowned self] in
             entityAllocationClosure()
             self.appDelegate.saveContext()
             completion()
