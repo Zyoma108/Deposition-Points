@@ -23,6 +23,7 @@
 		EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD63213AA410000804B3 /* DataStorage.swift */; };
 		EAC6AD69213AF759000804B3 /* PartnerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD68213AF759000804B3 /* PartnerInteractor.swift */; };
 		EAC6AD6B213B0514000804B3 /* PointInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD6A213B0514000804B3 /* PointInteractor.swift */; };
+		EAE26AAD213D5AC200AD7DFB /* MKMapView+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AAC213D5AC200AD7DFB /* MKMapView+Scale.swift */; };
 		EAF282652139600D00951C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282642139600D00951C9A /* AppDelegate.swift */; };
 		EAF282672139600D00951C9A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282662139600D00951C9A /* MapViewController.swift */; };
 		EAF2826A2139600D00951C9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF282682139600D00951C9A /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		EAC6AD63213AA410000804B3 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		EAC6AD68213AF759000804B3 /* PartnerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerInteractor.swift; sourceTree = "<group>"; };
 		EAC6AD6A213B0514000804B3 /* PointInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInteractor.swift; sourceTree = "<group>"; };
+		EAE26AAC213D5AC200AD7DFB /* MKMapView+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Scale.swift"; sourceTree = "<group>"; };
 		EAF282612139600D00951C9A /* TestTinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF282642139600D00951C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF282662139600D00951C9A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				EAF2827F21396B0900951C9A /* Dictionary+QueryString.swift */,
+				EAE26AAC213D5AC200AD7DFB /* MKMapView+Scale.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */,
 				EAF2828021396B0900951C9A /* Dictionary+QueryString.swift in Sources */,
 				EAC6AD69213AF759000804B3 /* PartnerInteractor.swift in Sources */,
+				EAE26AAD213D5AC200AD7DFB /* MKMapView+Scale.swift in Sources */,
 				EA4906902139A497009685E8 /* JsonParser.swift in Sources */,
 				EAF2826D2139600D00951C9A /* TestTinkoff.xcdatamodeld in Sources */,
 				EA4906962139AA62009685E8 /* Partner.swift in Sources */,

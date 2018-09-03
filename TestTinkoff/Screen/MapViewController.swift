@@ -50,11 +50,11 @@ class MapViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func plusClicked(_ sender: Any) {
-        
+        mapView.scaleMap(center: mapView.region.center, zoom: 0.5)
     }
     
     @IBAction func minusClicked(_ sender: Any) {
-        
+        mapView.scaleMap(center: mapView.region.center, zoom: 2)
     }
     
     @IBAction func currentLocationClicked(_ sender: Any) {
