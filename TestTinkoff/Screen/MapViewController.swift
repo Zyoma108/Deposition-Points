@@ -24,10 +24,12 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         locationManager.requestWhenInUseAuthorization()
+        viewModel.requestPartners()
         
     }
     
     private func configure() {
+        mapView.delegate = self
         locationManager.delegate = self
     }
     
@@ -57,15 +59,15 @@ class MapViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func plusClicked(_ sender: Any) {
+    @IBAction private func plusClicked(_ sender: Any) {
         mapView.scaleMap(zoom: 0.5)
     }
     
-    @IBAction func minusClicked(_ sender: Any) {
+    @IBAction private func minusClicked(_ sender: Any) {
         mapView.scaleMap(zoom: 2)
     }
     
-    @IBAction func currentLocationClicked(_ sender: Any) {
+    @IBAction private func currentLocationClicked(_ sender: Any) {
         let currentStatus = CLLocationManager.authorizationStatus()
         if currentStatus == .denied {
             openChangePermissionsAlert()
@@ -76,6 +78,16 @@ class MapViewController: UIViewController {
         } else {
             viewModel.needSetCurrentLocation = true
         }
+    }
+    
+}
+
+extension MapViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        viewModel.requestPoints(latitude: mapView.centerCoordinate.latitude,
+                                longitude: mapView.centerCoordinate.longitude,
+                                radius: mapView.visibleMapRadius)
     }
     
 }
@@ -100,4 +112,3 @@ extension MapViewController: CLLocationManagerDelegate {
     }
     
 }
-
