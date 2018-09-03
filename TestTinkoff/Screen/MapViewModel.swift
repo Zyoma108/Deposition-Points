@@ -7,7 +7,11 @@
 //
 
 import Foundation
+import CoreLocation
 
 class MapViewModel {
+    
+    var currentLocation: CLLocation?
+    var needSetCurrentLocation: Bool = false
     
 }

@@ -28,7 +28,6 @@ class MapViewController: UIViewController {
     }
     
     private func configure() {
-        mapView.delegate = self
         locationManager.delegate = self
     }
     
@@ -48,13 +47,22 @@ class MapViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    private func locationDidUpdated(location: CLLocation) {
+        viewModel.currentLocation = location
+        
+        if viewModel.needSetCurrentLocation {
+            mapView.setPosision(coordinate: location.coordinate)
+            viewModel.needSetCurrentLocation = false
+        }
+    }
+    
     // MARK: - Actions
     @IBAction func plusClicked(_ sender: Any) {
-        mapView.scaleMap(center: mapView.region.center, zoom: 0.5)
+        mapView.scaleMap(zoom: 0.5)
     }
     
     @IBAction func minusClicked(_ sender: Any) {
-        mapView.scaleMap(center: mapView.region.center, zoom: 2)
+        mapView.scaleMap(zoom: 2)
     }
     
     @IBAction func currentLocationClicked(_ sender: Any) {
@@ -62,11 +70,13 @@ class MapViewController: UIViewController {
         if currentStatus == .denied {
             openChangePermissionsAlert()
         }
+        
+        if let currentLocation = viewModel.currentLocation {
+            mapView.setPosision(coordinate: currentLocation.coordinate)
+        } else {
+            viewModel.needSetCurrentLocation = true
+        }
     }
-    
-}
-
-extension MapViewController: MKMapViewDelegate {
     
 }
 
@@ -80,6 +90,12 @@ extension MapViewController: CLLocationManagerDelegate {
             openChangePermissionsAlert()
         default:
             break
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            locationDidUpdated(location: location)
         }
     }
     
