@@ -39,15 +39,19 @@ class PointInteractor: Interactor {
         }
         group.wait()
         
-        points.forEach { point in
-            guard let partner = partners.first(where: { $0.id! == point.partnerName }),
-                let entity = DataStorage.shared.entity(type: PointEntity.self) else { return }
-            
-            point.save(to: entity)
-            entity.partner = partner
-        }
-        
-        DataStorage.shared.save()
+        group.enter()
+        DataStorage.shared.save({
+            points.forEach { point in
+                guard let partner = partners.first(where: { $0.id! == point.partnerName }),
+                    let entity = DataStorage.shared.entity(type: PointEntity.self) else { return }
+                
+                point.save(to: entity)
+                entity.partner = partner
+            }
+        }, {
+            group.leave()
+        })
+        group.wait()
     }
 
 }

@@ -18,12 +18,18 @@ class PartnerInteractor: Interactor {
     var fetchRequest: NSFetchRequest<PartnerEntity> { return PartnerEntity.fetchRequest() }
     
     func saveToStorage(_ data: [Decodable]) {
-        guard let partners = data as? [Partner] else { return }
-        for partner in partners {
-            guard let entity = DataStorage.shared.entity(type: PartnerEntity.self) else { continue }
-            partner.save(to: entity)
-        }
-        DataStorage.shared.save()
+        let group = DispatchGroup()
+        group.enter()
+        DataStorage.shared.save({
+            guard let partners = data as? [Partner] else { return }
+            for partner in partners {
+                guard let entity = DataStorage.shared.entity(type: PartnerEntity.self) else { continue }
+                partner.save(to: entity)
+            }
+        }, {
+            group.leave()
+        })
+        group.wait()
     }
     
 }

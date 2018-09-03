@@ -42,7 +42,7 @@ class DataStorage {
                     guard let object = result as? NSManagedObject else { continue }
                     self.context.delete(object)
                 }
-                self.save()
+                self.appDelegate.saveContext()
                 completion()
             }
         }
@@ -56,7 +56,11 @@ class DataStorage {
         return T(entity: description, insertInto: context)
     }
     
-    func save() {
-        appDelegate.saveContext()
+    func save(_ entityAllocationClosure: @escaping (() -> Void), _ completion: @escaping (() -> Void)) {
+        writeQueue.async {
+            entityAllocationClosure()
+            self.appDelegate.saveContext()
+            completion()
+        }
     }
 }
