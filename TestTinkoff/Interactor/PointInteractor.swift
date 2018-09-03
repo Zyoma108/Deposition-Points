@@ -14,9 +14,9 @@ class PointInteractor: Interactor {
     typealias EntityType = PointEntity
     typealias ServiceType = PointService
     
-    let latitude: Double
-    let longitude: Double
-    let radius: Int
+    private let latitude: Double
+    private let longitude: Double
+    private let radius: Int
     
     init(latitude: Double, longitude: Double, radius: Int) {
         self.latitude = latitude

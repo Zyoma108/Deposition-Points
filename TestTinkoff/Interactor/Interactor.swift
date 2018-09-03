@@ -30,14 +30,16 @@ protocol Interactor: class {
 
 extension Interactor {
     
-    func requestData(completionQueue: DispatchQueue, _ completion: @escaping InteractorCompletion) {
+    func requestData(completionQueue: DispatchQueue, force: Bool, _ completion: @escaping InteractorCompletion) {
         let workQueue = DispatchQueue.global(qos: .userInteractive)
         workQueue.async { [weak self] in
-            self?.removeOldEntities()
-            
-            if let error = self?.loadFromNetwork() {
-                completionQueue.async {
-                    completion(.failure(error: error))
+            if force {
+                self?.removeOldEntities()
+                
+                if let error = self?.loadFromNetwork() {
+                    completionQueue.async {
+                        completion(.failure(error: error))
+                    }
                 }
             }
             
