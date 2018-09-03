@@ -24,6 +24,8 @@
 		EAC6AD69213AF759000804B3 /* PartnerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD68213AF759000804B3 /* PartnerInteractor.swift */; };
 		EAC6AD6B213B0514000804B3 /* PointInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD6A213B0514000804B3 /* PointInteractor.swift */; };
 		EAE26AAD213D5AC200AD7DFB /* MKMapView+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AAC213D5AC200AD7DFB /* MKMapView+Scale.swift */; };
+		EAE26AAF213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AAE213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift */; };
+		EAE26AB2213D679E00AD7DFB /* MKMapView+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AB1213D679E00AD7DFB /* MKMapView+Distance.swift */; };
 		EAF282652139600D00951C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282642139600D00951C9A /* AppDelegate.swift */; };
 		EAF282672139600D00951C9A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282662139600D00951C9A /* MapViewController.swift */; };
 		EAF2826A2139600D00951C9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF282682139600D00951C9A /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		EAC6AD68213AF759000804B3 /* PartnerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerInteractor.swift; sourceTree = "<group>"; };
 		EAC6AD6A213B0514000804B3 /* PointInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointInteractor.swift; sourceTree = "<group>"; };
 		EAE26AAC213D5AC200AD7DFB /* MKMapView+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Scale.swift"; sourceTree = "<group>"; };
+		EAE26AAE213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Location.swift"; sourceTree = "<group>"; };
+		EAE26AB1213D679E00AD7DFB /* MKMapView+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Distance.swift"; sourceTree = "<group>"; };
 		EAF282612139600D00951C9A /* TestTinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF282642139600D00951C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF282662139600D00951C9A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,31 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		EAE26AB0213D678C00AD7DFB /* MKMapView */ = {
+			isa = PBXGroup;
+			children = (
+				EAE26AAC213D5AC200AD7DFB /* MKMapView+Scale.swift */,
+				EAE26AB1213D679E00AD7DFB /* MKMapView+Distance.swift */,
+			);
+			path = MKMapView;
+			sourceTree = "<group>";
+		};
+		EAE26AB3213D684600AD7DFB /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				EAF2827F21396B0900951C9A /* Dictionary+QueryString.swift */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
+		EAE26AB4213D685300AD7DFB /* CLLocationCoordinate2D */ = {
+			isa = PBXGroup;
+			children = (
+				EAE26AAE213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift */,
+			);
+			path = CLLocationCoordinate2D;
+			sourceTree = "<group>";
+		};
 		EAF282582139600C00951C9A = {
 			isa = PBXGroup;
 			children = (
@@ -217,8 +246,9 @@
 		EAF2827E21396AE300951C9A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EAF2827F21396B0900951C9A /* Dictionary+QueryString.swift */,
-				EAE26AAC213D5AC200AD7DFB /* MKMapView+Scale.swift */,
+				EAE26AB3213D684600AD7DFB /* Dictionary */,
+				EAE26AB0213D678C00AD7DFB /* MKMapView */,
+				EAE26AB4213D685300AD7DFB /* CLLocationCoordinate2D */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -304,6 +334,7 @@
 				EA4906902139A497009685E8 /* JsonParser.swift in Sources */,
 				EAF2826D2139600D00951C9A /* TestTinkoff.xcdatamodeld in Sources */,
 				EA4906962139AA62009685E8 /* Partner.swift in Sources */,
+				EAE26AAF213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift in Sources */,
 				EA49068C2139A3E5009685E8 /* StringError.swift in Sources */,
 				EA49068A21399D58009685E8 /* TinkoffAPIMethod.swift in Sources */,
 				EAF2827D213966BB00951C9A /* Request.swift in Sources */,
@@ -313,6 +344,7 @@
 				EA490684213996D1009685E8 /* API.swift in Sources */,
 				EAF2827B213960F700951C9A /* GetRequest.swift in Sources */,
 				EA729A60213C29AA00FB6909 /* MapViewModel.swift in Sources */,
+				EAE26AB2213D679E00AD7DFB /* MKMapView+Distance.swift in Sources */,
 				EA49068621399897009685E8 /* Constants.swift in Sources */,
 				EA4906982139ADE2009685E8 /* Service.swift in Sources */,
 				EA4906932139A6DD009685E8 /* PartnersService.swift in Sources */,
