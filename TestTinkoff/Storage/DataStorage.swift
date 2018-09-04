@@ -14,9 +14,7 @@ class DataStorage {
     static let shared = DataStorage()
     weak var appDelegate: AppDelegate!
     
-    private var context: NSManagedObjectContext {
-        return appDelegate.persistentContainer.viewContext
-    }
+    let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
     
     private init() {}
     
@@ -39,7 +37,7 @@ class DataStorage {
                     guard let object = result as? NSManagedObject else { continue }
                     self.context.delete(object)
                 }
-                self.appDelegate.saveContext()
+                try? self.context.save()
                 completion()
             }
         }
@@ -56,7 +54,7 @@ class DataStorage {
     func save(_ entityAllocationClosure: @escaping (() -> Void), _ completion: @escaping (() -> Void)) {
         context.perform { [unowned self] in
             entityAllocationClosure()
-            self.appDelegate.saveContext()
+            try? self.context.save()
             completion()
         }
     }
