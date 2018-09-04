@@ -21,41 +21,58 @@ class ImageStorage {
     }
     
     func saveImageWith(url: String, completion: @escaping ((_ image: UIImage?) -> Void)) {
-        let request = GetRequest(domain: url, path: nil, parameters: nil)
-        request.send { result in
-            switch result {
-            case .success(let data):
-                if let image = UIImage(data: data),
-                    let representation = UIImagePNGRepresentation(image) {
-                    DispatchQueue.main.async {
-                        completion(image)
-                    }
-                    do {
-                        try representation.write(to: self.imageCachePath.appendingPathComponent(url.md5))
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                } else {
-                    print("Can't parse image")
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            guard let `self` = self else { return }
+            
+            if let cached = self.readCachedImage(url) {
+                DispatchQueue.main.async {
+                    completion(cached)
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
+                return
             }
             
+            let request = GetRequest(domain: url, path: nil, parameters: nil)
+            request.send { result in
+                switch result {
+                case .success(let data):
+                    if let image = UIImage(data: data),
+                        let representation = UIImagePNGRepresentation(image) {
+                        DispatchQueue.main.async {
+                            completion(image)
+                        }
+                        do {
+                            try representation.write(to: self.imageCachePath.appendingPathComponent(url.md5))
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    } else {
+                        print("Can't parse image")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                
+            }
         }
-        
     }
     
-    func filesList() {
+    private func readCachedImage(_ url: String) -> UIImage? {
         do {
             let contents = try FileManager.default.contentsOfDirectory(at: imageCachePath,
                                                                        includingPropertiesForKeys: nil,
                                                                        options: .skipsHiddenFiles)
-            print(contents)
+            for content in contents {
+                if let fileName = content.absoluteString.components(separatedBy: "/").last,
+                    fileName == url.md5 {
+                    let readedImage = UIImage(contentsOfFile: content.path)
+                    return readedImage
+                }
+            }
+            return nil
         } catch {
-            print(error.localizedDescription)
+            assertionFailure(error.localizedDescription)
+            return nil
         }
-        
     }
     
     private func createCachePathIfNeeded() {
