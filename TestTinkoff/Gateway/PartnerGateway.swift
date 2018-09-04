@@ -1,5 +1,5 @@
 //
-//  PartnerInteractor.swift
+//  PartnerGateway.swift
 //  TestTinkoff
 //
 //  Created by Roman Sentsov on 01.09.2018.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class PartnerInteractor: Interactor {
+class PartnerGateway: Gateway {
     
     typealias EntityType = PartnerEntity
     typealias ServiceType = PartnersService

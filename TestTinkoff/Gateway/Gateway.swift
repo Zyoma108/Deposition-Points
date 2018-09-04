@@ -1,5 +1,5 @@
 //
-//  Interactor.swift
+//  Gateway.swift
 //  TestTinkoff
 //
 //  Created by Roman Sentsov on 02.09.2018.
@@ -9,17 +9,17 @@
 import Foundation
 import CoreData
 
-enum InteractorResult<T: NSManagedObject> {
+enum GatewayResult<T: NSManagedObject> {
     case success(result: [T])
     case failure(error: Error)
 }
 
-protocol Interactor: class {
+protocol Gateway: class {
     
     associatedtype EntityType: NSManagedObject
     associatedtype ServiceType: Service
     
-    typealias InteractorCompletion = (_ result: InteractorResult<EntityType>) -> Void
+    typealias GatewayCompletion = (_ result: GatewayResult<EntityType>) -> Void
     
     var service: ServiceType { get }
     var fetchRequest: NSFetchRequest<EntityType> { get }
@@ -28,9 +28,9 @@ protocol Interactor: class {
     
 }
 
-extension Interactor {
+extension Gateway {
     
-    func requestData(completionQueue: DispatchQueue, force: Bool, _ completion: @escaping InteractorCompletion) {
+    func requestData(completionQueue: DispatchQueue, force: Bool, _ completion: @escaping GatewayCompletion) {
         let workQueue = DispatchQueue.global(qos: .userInteractive)
         workQueue.async { [weak self] in
             if force {

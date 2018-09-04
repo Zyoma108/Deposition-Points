@@ -14,8 +14,8 @@ class MapViewModel {
     var currentLocation: CLLocation?
     var needSetCurrentLocation: Bool = false
     
-    var interactor: PointInteractor?
-    let partnerInteractor = PartnerInteractor()
+    var gateway: PointGateway?
+    let partnerGateway = PartnerGateway()
     
     var annotationsUpdated: ((_ annotations: [MKAnnotation]) -> Void)?
     var onError: ((_ error: Error) -> Void)?
@@ -23,8 +23,8 @@ class MapViewModel {
     
     func needUpdatePoints(latitude: Double, longitude: Double, radius: Double) {
         loadingChanged?(true)
-        interactor = PointInteractor(latitude: latitude, longitude: longitude, radius: Int(radius))
-        if !partnerInteractor.dataReceived {
+        gateway = PointGateway(latitude: latitude, longitude: longitude, radius: Int(radius))
+        if !partnerGateway.dataReceived {
             requestPartners()
         } else {
             requestPoints()
@@ -32,7 +32,7 @@ class MapViewModel {
     }
     
     private func requestPoints() {
-        interactor?.requestData(completionQueue: DispatchQueue.main, force: true) { [weak self] result in
+        gateway?.requestData(completionQueue: DispatchQueue.main, force: true) { [weak self] result in
             guard let `self` = self else { return }
             switch result {
             case .success(let result):
@@ -51,13 +51,13 @@ class MapViewModel {
     }
     
     private func requestPartners() {
-        partnerInteractor.requestData(completionQueue: DispatchQueue.main, force: true) { [weak self] result in
+        partnerGateway.requestData(completionQueue: DispatchQueue.main, force: true) { [weak self] result in
             guard let `self` = self else { return }
             
             switch result {
             case .success(_):
                 print("Partners list successfully updated")
-                self.partnerInteractor.dataReceived = true
+                self.partnerGateway.dataReceived = true
                 self.requestPoints()
             case .failure(let error):
                 self.onError?(error)

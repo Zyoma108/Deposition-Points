@@ -1,5 +1,5 @@
 //
-//  PointInteractor.swift
+//  PointGateway.swift
 //  TestTinkoff
 //
 //  Created by Roman Sentsov on 01.09.2018.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class PointInteractor: Interactor {
+class PointGateway: Gateway {
     
     typealias EntityType = PointEntity
     typealias ServiceType = PointService
