@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA420377213EC935001E78BD /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA420376213EC935001E78BD /* ImageStorage.swift */; };
+		EA42037A213ED25D001E78BD /* UIImageView+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA420379213ED25D001E78BD /* UIImageView+Cache.swift */; };
 		EA490684213996D1009685E8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA490683213996D1009685E8 /* API.swift */; };
 		EA49068621399897009685E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068521399897009685E8 /* Constants.swift */; };
 		EA49068821399A9E009685E8 /* APIMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068721399A9E009685E8 /* APIMethod.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA420376213EC935001E78BD /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
+		EA420379213ED25D001E78BD /* UIImageView+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cache.swift"; sourceTree = "<group>"; };
 		EA490683213996D1009685E8 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EA49068521399897009685E8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EA49068721399A9E009685E8 /* APIMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMethod.swift; sourceTree = "<group>"; };
@@ -85,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA420378213ED248001E78BD /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				EA420379213ED25D001E78BD /* UIImageView+Cache.swift */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
 		EA49068E2139A484009685E8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				EAC6AD63213AA410000804B3 /* DataStorage.swift */,
+				EA420376213EC935001E78BD /* ImageStorage.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -271,6 +284,7 @@
 				EAE26AB3213D684600AD7DFB /* Dictionary */,
 				EAE26AB0213D678C00AD7DFB /* MKMapView */,
 				EAE26AB4213D685300AD7DFB /* CLLocationCoordinate2D */,
+				EA420378213ED248001E78BD /* UIImageView */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -347,6 +361,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA49069C2139B167009685E8 /* PointService.swift in Sources */,
+				EA420377213EC935001E78BD /* ImageStorage.swift in Sources */,
+				EA42037A213ED25D001E78BD /* UIImageView+Cache.swift in Sources */,
 				EA49069A2139B0C5009685E8 /* Point.swift in Sources */,
 				EAF282672139600D00951C9A /* MapViewController.swift in Sources */,
 				EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */,

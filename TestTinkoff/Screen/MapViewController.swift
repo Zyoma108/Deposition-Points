@@ -115,8 +115,9 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         switch annotation {
-        case _ as DepositionPointAnnotation:
-            let view = mapView.dequeueReusableAnnotationView(withIdentifier: "deposition_point")
+        case let annotation as DepositionPointAnnotation:
+            let view = mapView.dequeueReusableAnnotationView(withIdentifier: "deposition_point") as? DepositionPointAnnotationView
+            view?.imageView.setImageWith(name: annotation.imageName)
             return view
         default:
             return nil

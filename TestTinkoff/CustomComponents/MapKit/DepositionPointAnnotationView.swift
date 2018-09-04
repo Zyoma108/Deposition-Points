@@ -11,6 +11,12 @@ import MapKit
 
 class DepositionPointAnnotationView: MKAnnotationView {
     
+    lazy var imageView: UIImageView = {
+        let image = UIImageView(frame: bounds)
+        addSubview(image)
+        return image
+    }()
+    
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         setup()
@@ -22,10 +28,9 @@ class DepositionPointAnnotationView: MKAnnotationView {
     }
     
     private func setup() {
-        frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        layer.cornerRadius = 25
+        frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        layer.cornerRadius = 15
         layer.masksToBounds = true
-        backgroundColor = UIColor.red
     }
     
 }

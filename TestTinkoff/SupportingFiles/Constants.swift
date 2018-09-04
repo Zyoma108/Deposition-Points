@@ -11,6 +11,7 @@ import Foundation
 class Constants {
     
     static let domain = "https://api.tinkoff.ru"
+    static let fileDomain = "https://static.tinkoff.ru"
     static let apiVersion = "v1"
     
 }

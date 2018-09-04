@@ -37,7 +37,9 @@ class MapViewModel {
             switch result {
             case .success(let result):
                 let annotations = result.map { point -> MKAnnotation in
-                    return DepositionPointAnnotation(latitude: point.latitude, longitude: point.longitude)
+                    return DepositionPointAnnotation(latitude: point.latitude,
+                                                     longitude: point.longitude,
+                                                     imageName: point.partner?.picture)
                 }
                 self.annotationsUpdated?(annotations)
                 self.loadingChanged?(false)
