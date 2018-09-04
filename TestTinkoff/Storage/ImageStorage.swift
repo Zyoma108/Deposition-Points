@@ -20,10 +20,8 @@ class ImageStorage {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("/icons")
     }
     
-    func saveImageWith(name: String, completion: @escaping ((_ image: UIImage?) -> Void)) {
-        let request = GetRequest(domain: Constants.fileDomain,
-                                 path: "icons/deposition-partners-v3/xxhdpi/\(name)",
-                                 parameters: [:])
+    func saveImageWith(url: String, completion: @escaping ((_ image: UIImage?) -> Void)) {
+        let request = GetRequest(domain: url, path: nil, parameters: nil)
         request.send { result in
             switch result {
             case .success(let data):
@@ -33,7 +31,7 @@ class ImageStorage {
                         completion(image)
                     }
                     do {
-                        try representation.write(to: self.imageCachePath.appendingPathComponent(name))
+                        try representation.write(to: self.imageCachePath.appendingPathComponent(url.md5))
                     } catch {
                         print(error.localizedDescription)
                     }
@@ -50,7 +48,9 @@ class ImageStorage {
     
     func filesList() {
         do {
-            let contents = try FileManager.default.contentsOfDirectory(at: imageCachePath, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            let contents = try FileManager.default.contentsOfDirectory(at: imageCachePath,
+                                                                       includingPropertiesForKeys: nil,
+                                                                       options: .skipsHiddenFiles)
             print(contents)
         } catch {
             print(error.localizedDescription)

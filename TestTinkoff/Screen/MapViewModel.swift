@@ -37,9 +37,15 @@ class MapViewModel {
             switch result {
             case .success(let result):
                 let annotations = result.map { point -> MKAnnotation in
+                    let imageUrl: String?
+                    if let pictureName = point.partner?.picture {
+                        imageUrl = Constants.fileDomain + "/icons/deposition-partners-v3/xxhdpi/" + pictureName
+                    } else {
+                        imageUrl = nil
+                    }
                     return DepositionPointAnnotation(latitude: point.latitude,
                                                      longitude: point.longitude,
-                                                     imageName: point.partner?.picture)
+                                                     imageUrl: imageUrl)
                 }
                 self.annotationsUpdated?(annotations)
                 self.loadingChanged?(false)

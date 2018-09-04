@@ -12,9 +12,9 @@ class GetRequest: Request {
     
     let domain: String
     let path: String?
-    let parameters: [String: String]
+    let parameters: [String: String]?
     
-    init(domain: String, path: String?, parameters: [String: String]) {
+    init(domain: String, path: String?, parameters: [String: String]?) {
         self.domain = domain
         self.path = path
         self.parameters = parameters
@@ -43,7 +43,8 @@ class GetRequest: Request {
         if let path = path {
             result += "/" + path
         }
-        if !parameters.isEmpty {
+        if let parameters = parameters,
+            !parameters.isEmpty {
             result += "?" + parameters.queryString
         }
         return result

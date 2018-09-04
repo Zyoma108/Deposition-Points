@@ -10,10 +10,10 @@ import UIKit
 
 extension UIImageView {
     
-    func setImageWith(name: String?) {
-        guard let name = name else { return }
+    func setImageWith(url: String?) {
+        guard let url = url else { return }
         
-        ImageStorage.shared.saveImageWith(name: name) { [weak self] image in
+        ImageStorage.shared.saveImageWith(url: url) { [weak self] image in
             self?.image = image
         }
     }

@@ -30,6 +30,7 @@
 		EAE26AAD213D5AC200AD7DFB /* MKMapView+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AAC213D5AC200AD7DFB /* MKMapView+Scale.swift */; };
 		EAE26AAF213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AAE213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift */; };
 		EAE26AB2213D679E00AD7DFB /* MKMapView+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AB1213D679E00AD7DFB /* MKMapView+Distance.swift */; };
+		EAEEA39F213EE4A4009EECD8 /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEEA39E213EE4A4009EECD8 /* String+md5.swift */; };
 		EAF282652139600D00951C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282642139600D00951C9A /* AppDelegate.swift */; };
 		EAF282672139600D00951C9A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282662139600D00951C9A /* MapViewController.swift */; };
 		EAF2826A2139600D00951C9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF282682139600D00951C9A /* Main.storyboard */; };
@@ -65,6 +66,8 @@
 		EAE26AAC213D5AC200AD7DFB /* MKMapView+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Scale.swift"; sourceTree = "<group>"; };
 		EAE26AAE213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Location.swift"; sourceTree = "<group>"; };
 		EAE26AB1213D679E00AD7DFB /* MKMapView+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Distance.swift"; sourceTree = "<group>"; };
+		EAEEA39E213EE4A4009EECD8 /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
+		EAEEA3A0213EE50F009EECD8 /* TestTinkoff-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestTinkoff-Bridging-Header.h"; sourceTree = "<group>"; };
 		EAF282612139600D00951C9A /* TestTinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF282642139600D00951C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF282662139600D00951C9A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 		EA729A5E213C188100FB6909 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				EAEEA3A0213EE50F009EECD8 /* TestTinkoff-Bridging-Header.h */,
 				EAF282642139600D00951C9A /* AppDelegate.swift */,
 				EA49068521399897009685E8 /* Constants.swift */,
 				EAF2826B2139600D00951C9A /* TestTinkoff.xcdatamodeld */,
@@ -234,6 +238,14 @@
 			path = CLLocationCoordinate2D;
 			sourceTree = "<group>";
 		};
+		EAEEA39D213EE491009EECD8 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				EAEEA39E213EE4A4009EECD8 /* String+md5.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		EAF282582139600C00951C9A = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +293,7 @@
 		EAF2827E21396AE300951C9A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EAEEA39D213EE491009EECD8 /* String */,
 				EAE26AB3213D684600AD7DFB /* Dictionary */,
 				EAE26AB0213D678C00AD7DFB /* MKMapView */,
 				EAE26AB4213D685300AD7DFB /* CLLocationCoordinate2D */,
@@ -383,6 +396,7 @@
 				EAF2827B213960F700951C9A /* GetRequest.swift in Sources */,
 				EADB07C0213E9CB000AC10F1 /* DepositionPointAnnotation.swift in Sources */,
 				EADB07C2213E9D6A00AC10F1 /* DepositionPointAnnotationView.swift in Sources */,
+				EAEEA39F213EE4A4009EECD8 /* String+md5.swift in Sources */,
 				EA729A60213C29AA00FB6909 /* MapViewModel.swift in Sources */,
 				EAE26AB2213D679E00AD7DFB /* MKMapView+Distance.swift in Sources */,
 				EA49068621399897009685E8 /* Constants.swift in Sources */,
@@ -541,6 +555,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zyoma.testtinkoff.TestTinkoff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestTinkoff/SupportingFiles/TestTinkoff-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -559,6 +574,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zyoma.testtinkoff.TestTinkoff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestTinkoff/SupportingFiles/TestTinkoff-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

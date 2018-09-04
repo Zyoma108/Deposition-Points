@@ -12,11 +12,11 @@ import MapKit
 class DepositionPointAnnotation: NSObject, MKAnnotation {
     
     let coordinate: CLLocationCoordinate2D
-    let imageName: String?
+    let imageUrl: String?
     
-    init(latitude: Double, longitude: Double, imageName: String?) {
+    init(latitude: Double, longitude: Double, imageUrl: String?) {
         self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        self.imageName = imageName
+        self.imageUrl = imageUrl
     }
     
 }
