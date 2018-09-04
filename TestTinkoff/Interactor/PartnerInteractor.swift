@@ -14,6 +14,8 @@ class PartnerInteractor: Interactor {
     typealias EntityType = PartnerEntity
     typealias ServiceType = PartnersService
     
+    var dataReceived: Bool = false
+    
     var service: PartnersService { return PartnersService() }
     var fetchRequest: NSFetchRequest<PartnerEntity> { return PartnerEntity.fetchRequest() }
     

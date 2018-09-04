@@ -25,7 +25,7 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         locationManager.requestWhenInUseAuthorization()
-        viewModel.requestPartners()
+        updatePoints()
     }
     
     private func configure() {
@@ -36,6 +36,19 @@ class MapViewController: UIViewController {
             self.mapView.removeAnnotations(self.mapView.annotations)
             self.mapView.addAnnotations(annotations)
         }
+        
+        viewModel.onError = { error in
+            print("Error \(error.localizedDescription)")
+        }
+        
+        viewModel.loadingChanged = { [unowned self] isLoading in
+            if isLoading {
+                self.activityIndicator.startAnimating()
+            } else {
+                self.activityIndicator.stopAnimating()
+            }
+        }
+        
     }
     
     private func openChangePermissionsAlert() {
@@ -61,6 +74,12 @@ class MapViewController: UIViewController {
             mapView.setPosision(coordinate: location.coordinate)
             viewModel.needSetCurrentLocation = false
         }
+    }
+    
+    private func updatePoints() {
+        viewModel.needUpdatePoints(latitude: mapView.centerCoordinate.latitude,
+                                   longitude: mapView.centerCoordinate.longitude,
+                                   radius: mapView.visibleMapRadius)
     }
     
     // MARK: - Actions
@@ -90,9 +109,7 @@ class MapViewController: UIViewController {
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        viewModel.requestPoints(latitude: mapView.centerCoordinate.latitude,
-                                longitude: mapView.centerCoordinate.longitude,
-                                radius: mapView.visibleMapRadius)
+        updatePoints()
     }
     
 }
