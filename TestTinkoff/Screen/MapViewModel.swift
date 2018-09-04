@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CoreLocation
+import MapKit
 
 class MapViewModel {
     
@@ -16,6 +16,8 @@ class MapViewModel {
     
     var interactor: PointInteractor?
     let partnerInteractor = PartnerInteractor()
+    
+    var annotationsUpdated: ((_ annotations: [MKAnnotation]) -> Void)?
     
     func requestPartners() {
         print("Request partners")
@@ -32,10 +34,17 @@ class MapViewModel {
     func requestPoints(latitude: Double, longitude: Double, radius: Double) {
         print("Request points")
         interactor = PointInteractor(latitude: latitude, longitude: longitude, radius: Int(radius))
-        interactor?.requestData(completionQueue: DispatchQueue.main, force: true) { result in
+        interactor?.requestData(completionQueue: DispatchQueue.main, force: true) { [weak self] result in
+            guard let `self` = self else { return }
             switch result {
             case .success(let result):
                 print("Received \(result.count) points")
+                let annotations = result.map { point -> MKPointAnnotation in
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
+                    return annotation
+                }
+                self.annotationsUpdated?(annotations)
             case .failure(let error):
                 print("Error: \(error)")
             }

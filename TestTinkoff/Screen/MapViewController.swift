@@ -25,12 +25,16 @@ class MapViewController: UIViewController {
         super.viewWillAppear(animated)
         locationManager.requestWhenInUseAuthorization()
         viewModel.requestPartners()
-        
     }
     
     private func configure() {
         mapView.delegate = self
         locationManager.delegate = self
+        
+        viewModel.annotationsUpdated = { [unowned self] annotations in
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            self.mapView.addAnnotations(annotations)
+        }
     }
     
     private func openChangePermissionsAlert() {
