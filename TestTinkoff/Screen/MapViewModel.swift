@@ -36,10 +36,8 @@ class MapViewModel {
             guard let `self` = self else { return }
             switch result {
             case .success(let result):
-                let annotations = result.map { point -> MKPointAnnotation in
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
-                    return annotation
+                let annotations = result.map { point -> MKAnnotation in
+                    return DepositionPointAnnotation(latitude: point.latitude, longitude: point.longitude)
                 }
                 self.annotationsUpdated?(annotations)
                 self.loadingChanged?(false)

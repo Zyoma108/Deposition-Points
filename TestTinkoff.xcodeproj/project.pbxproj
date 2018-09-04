@@ -23,6 +23,8 @@
 		EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD63213AA410000804B3 /* DataStorage.swift */; };
 		EAC6AD69213AF759000804B3 /* PartnerGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD68213AF759000804B3 /* PartnerGateway.swift */; };
 		EAC6AD6B213B0514000804B3 /* PointGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD6A213B0514000804B3 /* PointGateway.swift */; };
+		EADB07C0213E9CB000AC10F1 /* DepositionPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADB07BF213E9CB000AC10F1 /* DepositionPointAnnotation.swift */; };
+		EADB07C2213E9D6A00AC10F1 /* DepositionPointAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADB07C1213E9D6A00AC10F1 /* DepositionPointAnnotationView.swift */; };
 		EAE26AAD213D5AC200AD7DFB /* MKMapView+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AAC213D5AC200AD7DFB /* MKMapView+Scale.swift */; };
 		EAE26AAF213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AAE213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift */; };
 		EAE26AB2213D679E00AD7DFB /* MKMapView+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AB1213D679E00AD7DFB /* MKMapView+Distance.swift */; };
@@ -54,6 +56,8 @@
 		EAC6AD63213AA410000804B3 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		EAC6AD68213AF759000804B3 /* PartnerGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerGateway.swift; sourceTree = "<group>"; };
 		EAC6AD6A213B0514000804B3 /* PointGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointGateway.swift; sourceTree = "<group>"; };
+		EADB07BF213E9CB000AC10F1 /* DepositionPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositionPointAnnotation.swift; sourceTree = "<group>"; };
+		EADB07C1213E9D6A00AC10F1 /* DepositionPointAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositionPointAnnotationView.swift; sourceTree = "<group>"; };
 		EAE26AAC213D5AC200AD7DFB /* MKMapView+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Scale.swift"; sourceTree = "<group>"; };
 		EAE26AAE213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Location.swift"; sourceTree = "<group>"; };
 		EAE26AB1213D679E00AD7DFB /* MKMapView+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Distance.swift"; sourceTree = "<group>"; };
@@ -175,6 +179,23 @@
 			path = Gateway;
 			sourceTree = "<group>";
 		};
+		EADB07C3213EA2B500AC10F1 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				EADB07C4213EA2C300AC10F1 /* MapKit */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		EADB07C4213EA2C300AC10F1 /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				EADB07BF213E9CB000AC10F1 /* DepositionPointAnnotation.swift */,
+				EADB07C1213E9D6A00AC10F1 /* DepositionPointAnnotationView.swift */,
+			);
+			path = MapKit;
+			sourceTree = "<group>";
+		};
 		EAE26AB0213D678C00AD7DFB /* MKMapView */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +248,7 @@
 				EAC6AD62213AA3F4000804B3 /* Storage */,
 				EAC6AD67213AF740000804B3 /* Gateway */,
 				EA4906942139A6EF009685E8 /* Model */,
+				EADB07C3213EA2B500AC10F1 /* CustomComponents */,
 				EA49068E2139A484009685E8 /* Utils */,
 				EA729A5E213C188100FB6909 /* SupportingFiles */,
 				EAF282732139600F00951C9A /* Info.plist */,
@@ -343,6 +365,8 @@
 				EAC6AD6B213B0514000804B3 /* PointGateway.swift in Sources */,
 				EA490684213996D1009685E8 /* API.swift in Sources */,
 				EAF2827B213960F700951C9A /* GetRequest.swift in Sources */,
+				EADB07C0213E9CB000AC10F1 /* DepositionPointAnnotation.swift in Sources */,
+				EADB07C2213E9D6A00AC10F1 /* DepositionPointAnnotationView.swift in Sources */,
 				EA729A60213C29AA00FB6909 /* MapViewModel.swift in Sources */,
 				EAE26AB2213D679E00AD7DFB /* MKMapView+Distance.swift in Sources */,
 				EA49068621399897009685E8 /* Constants.swift in Sources */,

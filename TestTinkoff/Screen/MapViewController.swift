@@ -30,6 +30,7 @@ class MapViewController: UIViewController {
     
     private func configure() {
         mapView.delegate = self
+        mapView.register(DepositionPointAnnotationView.self, forAnnotationViewWithReuseIdentifier: "deposition_point")
         locationManager.delegate = self
         
         viewModel.annotationsUpdated = { [unowned self] annotations in
@@ -110,6 +111,16 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         updatePoints()
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        switch annotation {
+        case _ as DepositionPointAnnotation:
+            let view = mapView.dequeueReusableAnnotationView(withIdentifier: "deposition_point")
+            return view
+        default:
+            return nil
+        }
     }
     
 }
