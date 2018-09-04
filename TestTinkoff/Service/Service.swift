@@ -29,12 +29,21 @@ extension Service {
         request.send { result in
             switch result {
             case .success(let data):
-                let decoder = JSONDecoder()
-                do {
-                    let result = try decoder.decode([T].self, from: data)
-                    completion(.success(result: result))
-                } catch {
-                    completion(.failure(error: error))
+                if let errorMessage = JsonParser.getStringWith(key: "errorMessage", from: data) {
+                    completion(.failure(error: StringError(description: errorMessage)))
+                } else {
+                    if let payload = JsonParser.getObjectWith(key: "payload", from: data),
+                        let payloadData = JsonParser.getData(from: payload) {
+                        let decoder = JSONDecoder()
+                        do {
+                            let result = try decoder.decode([T].self, from: payloadData)
+                            completion(.success(result: result))
+                        } catch {
+                            completion(.failure(error: error))
+                        }
+                    } else {
+                        completion(.failure(error: StringError(description: "Unable to parse payload value")))
+                    }
                 }
             case .failure(let error):
                 completion(.failure(error: error))
