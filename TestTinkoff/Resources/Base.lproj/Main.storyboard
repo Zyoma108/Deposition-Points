@@ -109,8 +109,39 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="M0p-fA-baX"/>
+                    <navigationItem key="navigationItem" id="M0p-fA-baX">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="mPd-x6-uoK">
+                            <rect key="frame" x="8" y="0.0" width="359" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Точки пополнения" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8s-De-FLH" userLabel="Title Label">
+                                    <rect key="frame" x="102.5" y="11.5" width="155" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zAN-JC-BLm">
+                                    <rect key="frame" x="267.5" y="12" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="J8s-De-FLH" firstAttribute="centerX" secondItem="mPd-x6-uoK" secondAttribute="centerX" id="Jyv-SV-sAR"/>
+                                <constraint firstItem="zAN-JC-BLm" firstAttribute="centerY" secondItem="mPd-x6-uoK" secondAttribute="centerY" id="Zk6-8S-xSd"/>
+                                <constraint firstItem="zAN-JC-BLm" firstAttribute="leading" secondItem="J8s-De-FLH" secondAttribute="trailing" constant="10" id="lal-kY-FYD"/>
+                                <constraint firstItem="J8s-De-FLH" firstAttribute="centerY" secondItem="mPd-x6-uoK" secondAttribute="centerY" id="myj-wS-cCy"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Точки пополнения"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <connections>
+                            <outlet property="titleView" destination="mPd-x6-uoK" id="ccb-3C-Fii"/>
+                        </connections>
+                    </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="zAN-JC-BLm" id="CKK-wO-VaV"/>
                         <outlet property="mapView" destination="64Z-Sp-1Jd" id="ixX-Nr-ivT"/>
                     </connections>
                 </viewController>

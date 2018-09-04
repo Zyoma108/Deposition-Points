@@ -13,6 +13,7 @@ import CoreLocation
 class MapViewController: UIViewController {
     
     @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     private let locationManager = CLLocationManager()
     private let viewModel = MapViewModel()
     
