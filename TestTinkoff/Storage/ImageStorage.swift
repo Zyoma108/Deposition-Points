@@ -30,19 +30,40 @@ class ImageStorage {
     
     func cacheImageWith(url: String, completion: @escaping ((_ image: UIImage?) -> Void)) {
         queue.async { [unowned self] in
-            self.readCachedImage(url) { cachedImage in
-                if let cachedImage = cachedImage {
-                    DispatchQueue.main.async {
-                        completion(cachedImage)
-                    }
-                } else {
-                    self.queue.async {
-                        self.downloadImage(url: url, completion: completion)
-                    }
-                }
-            }
+            self.readCachedImage(url, completion: completion)
         }
     }
+    
+    private func readCachedImage(_ url: String, completion: @escaping DisplayImageCompletion) {
+        let contents = try? fileManager.contentsOfDirectory(at: imageCachePath,
+                                                            includingPropertiesForKeys: nil,
+                                                            options: .skipsHiddenFiles)
+        
+        if let cachedContent = contents?.first(where: { content in
+            if let fileName = content.absoluteString.components(separatedBy: "/").last,
+                fileName == url.md5 {
+                return true
+            } else {
+                return false
+            }
+        }),
+            let attributes = try? fileManager.attributesOfItem(atPath: cachedContent.path),
+            let creationDate = attributes[.creationDate] as? Date {
+            DispatchQueue.main.async {
+                completion(UIImage(contentsOfFile: cachedContent.path))
+            }
+            checkLastModifedOf(url: url) { [unowned self] date in
+                guard let lastModifiedDate = date,
+                    lastModifiedDate < creationDate else {
+                    self.downloadImage(url: url, completion: completion)
+                    return
+                }
+            }
+        } else {
+            downloadImage(url: url, completion: completion)
+        }
+    }
+    
     
     private func downloadImage(url: String, completion: @escaping DisplayImageCompletion) {
         let request = GetRequest(domain: url, path: nil, parameters: nil)
@@ -67,36 +88,6 @@ class ImageStorage {
                     print(error.localizedDescription)
                 }
             }
-        }
-    }
-    
-    private func readCachedImage(_ url: String, completion: @escaping DisplayImageCompletion) {
-        let contents = try? fileManager.contentsOfDirectory(at: imageCachePath,
-                                                            includingPropertiesForKeys: nil,
-                                                            options: .skipsHiddenFiles)
-        
-        if let cachedContent = contents?.first(where: { content in
-            if let fileName = content.absoluteString.components(separatedBy: "/").last,
-                fileName == url.md5 {
-                return true
-            } else {
-                return false
-            }
-        }),
-            let attributes = try? fileManager.attributesOfItem(atPath: cachedContent.path),
-            let creationDate = attributes[.creationDate] as? Date {
-            
-            completion(UIImage(contentsOfFile: cachedContent.path))
-            checkLastModifedOf(url: url) { [unowned self] date in
-                if let lastModifiedDate = date,
-                    lastModifiedDate < creationDate {
-                    // display cached image
-                } else {
-                    self.downloadImage(url: url, completion: completion)
-                }
-            }
-        } else {
-            downloadImage(url: url, completion: completion)
         }
     }
     
