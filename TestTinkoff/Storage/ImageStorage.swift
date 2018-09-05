@@ -32,7 +32,7 @@ class ImageStorage {
             }
             
             let request = GetRequest(domain: url, path: nil, parameters: nil)
-            request.send { result in
+            request.send { result, _ in
                 switch result {
                 case .success(let data):
                     if let image = UIImage(data: data),

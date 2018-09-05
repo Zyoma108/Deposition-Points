@@ -26,7 +26,7 @@ protocol Service {
 extension Service {
     
     func receive(_ completion: @escaping ((_ result: ServiceResult<T>) -> Void)) {
-        request.send { result in
+        request.send { result, _ in
             switch result {
             case .success(let data):
                 if let errorMessage = JsonParser.getStringWith(key: "errorMessage", from: data) {
