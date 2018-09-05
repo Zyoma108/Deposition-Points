@@ -16,6 +16,7 @@ class ImageStorage {
     private var fileManager: FileManager!
     
     private let queue = DispatchQueue.global(qos: .userInteractive)
+    private let semaphore = DispatchSemaphore(value: 1)
     
     private init() {
         queue.async { [unowned self] in
@@ -24,9 +25,9 @@ class ImageStorage {
         }
     }
     
-    private var imageCachePath: URL {
+    private lazy var imageCachePath: URL = {
         return fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("/icons")
-    }
+    }()
     
     func cacheImageWith(url: String, completion: @escaping ((_ image: UIImage?) -> Void)) {
         queue.async { [unowned self] in
@@ -35,32 +36,31 @@ class ImageStorage {
     }
     
     private func readCachedImage(_ url: String, completion: @escaping DisplayImageCompletion) {
-        let contents = try? fileManager.contentsOfDirectory(at: imageCachePath,
-                                                            includingPropertiesForKeys: nil,
-                                                            options: .skipsHiddenFiles)
+        let path = imageCachePath.appendingPathComponent("/" + url.md5).path
         
-        if let cachedContent = contents?.first(where: { content in
-            if let fileName = content.absoluteString.components(separatedBy: "/").last,
-                fileName == url.md5 {
-                return true
-            } else {
-                return false
-            }
-        }),
-            let attributes = try? fileManager.attributesOfItem(atPath: cachedContent.path),
-            let creationDate = attributes[.creationDate] as? Date {
-            DispatchQueue.main.async {
-                completion(UIImage(contentsOfFile: cachedContent.path))
-            }
-            checkLastModifedOf(url: url) { [unowned self] date in
-                guard let lastModifiedDate = date,
-                    lastModifiedDate < creationDate else {
-                    self.downloadImage(url: url, completion: completion)
+        semaphore.wait()
+        guard fileManager.fileExists(atPath: path),
+            let attributes = try? fileManager.attributesOfItem(atPath: path),
+            let creationDate = attributes[.creationDate] as? Date else {
+                semaphore.signal()
+                downloadImage(url: url, completion: completion)
+                return
+        }
+        
+        let image = UIImage(contentsOfFile: path)
+        semaphore.signal()
+        
+        DispatchQueue.main.async {
+            completion(image)
+        }
+        
+        checkLastModifedOf(url: url) { [unowned self] date in
+            if let lastModifiedDate = date {
+                if creationDate > lastModifiedDate {
                     return
                 }
             }
-        } else {
-            downloadImage(url: url, completion: completion)
+            self.downloadImage(url: url, completion: completion)
         }
     }
     
@@ -72,15 +72,15 @@ class ImageStorage {
                 switch result {
                 case .success(let data):
                     if let image = UIImage(data: data),
-                        let representation = UIImagePNGRepresentation(image) {
+                        let representation = UIImageJPEGRepresentation(image, 1) {
                         DispatchQueue.main.async {
                             completion(image)
                         }
-                        do {
-                            try representation.write(to: self.imageCachePath.appendingPathComponent(url.md5))
-                        } catch {
-                            print(error.localizedDescription)
-                        }
+                        
+                        self.semaphore.wait()
+                        try? representation.write(to: self.imageCachePath.appendingPathComponent(url.md5))
+                        self.semaphore.signal()
+                        
                     } else {
                         print("Can't parse image")
                     }
@@ -98,9 +98,11 @@ class ImageStorage {
                 let lastModifedString = headers?["Last-Modified"] as? String
                 
                 let formetter = DateFormatter()
+                formetter.locale = Locale(identifier: "en_EN")
                 formetter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss Z"
                 if let dateString = lastModifedString {
-                    completion(formetter.date(from: dateString))
+                    let date = formetter.date(from: dateString)
+                    completion(date)
                 } else {
                     completion(nil)
                 }
