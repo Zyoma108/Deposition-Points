@@ -13,7 +13,7 @@ extension UIImageView {
     func setImageWith(url: String?) {
         guard let url = url else { return }
         
-        ImageStorage.shared.saveImageWith(url: url) { [weak self] image in
+        ImageStorage.shared.cacheImageWith(url: url) { [weak self] image in
             self?.image = image
         }
     }
