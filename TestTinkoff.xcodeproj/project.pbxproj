@@ -31,6 +31,7 @@
 		EAE26AAF213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AAE213D674900AD7DFB /* CLLocationCoordinate2D+Location.swift */; };
 		EAE26AB2213D679E00AD7DFB /* MKMapView+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE26AB1213D679E00AD7DFB /* MKMapView+Distance.swift */; };
 		EAEEA39F213EE4A4009EECD8 /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEEA39E213EE4A4009EECD8 /* String+md5.swift */; };
+		EAEEA3A3213F9148009EECD8 /* ReadHeadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEEA3A2213F9148009EECD8 /* ReadHeadRequest.swift */; };
 		EAF282652139600D00951C9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282642139600D00951C9A /* AppDelegate.swift */; };
 		EAF282672139600D00951C9A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF282662139600D00951C9A /* MapViewController.swift */; };
 		EAF2826A2139600D00951C9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF282682139600D00951C9A /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		EAE26AB1213D679E00AD7DFB /* MKMapView+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Distance.swift"; sourceTree = "<group>"; };
 		EAEEA39E213EE4A4009EECD8 /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		EAEEA3A0213EE50F009EECD8 /* TestTinkoff-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestTinkoff-Bridging-Header.h"; sourceTree = "<group>"; };
+		EAEEA3A2213F9148009EECD8 /* ReadHeadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadHeadRequest.swift; sourceTree = "<group>"; };
 		EAF282612139600D00951C9A /* TestTinkoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTinkoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF282642139600D00951C9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF282662139600D00951C9A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				EAF2827C213966BB00951C9A /* Request.swift */,
 				EAF2827A213960F700951C9A /* GetRequest.swift */,
+				EAEEA3A2213F9148009EECD8 /* ReadHeadRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				EAF2827B213960F700951C9A /* GetRequest.swift in Sources */,
 				EADB07C0213E9CB000AC10F1 /* DepositionPointAnnotation.swift in Sources */,
 				EADB07C2213E9D6A00AC10F1 /* DepositionPointAnnotationView.swift in Sources */,
+				EAEEA3A3213F9148009EECD8 /* ReadHeadRequest.swift in Sources */,
 				EAEEA39F213EE4A4009EECD8 /* String+md5.swift in Sources */,
 				EA729A60213C29AA00FB6909 /* MapViewModel.swift in Sources */,
 				EAE26AB2213D679E00AD7DFB /* MKMapView+Distance.swift in Sources */,

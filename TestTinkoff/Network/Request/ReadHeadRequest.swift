@@ -1,23 +1,19 @@
 //
-//  GetRequest.swift
+//  ReadHeadRequest.swift
 //  TestTinkoff
 //
-//  Created by Roman Sentsov on 31.08.2018.
+//  Created by Roman Sentsov on 05.09.2018.
 //  Copyright © 2018 Roman Sentsov. All rights reserved.
 //
 
 import Foundation
 
-class GetRequest: Request {
-
-    let domain: String
-    let path: String?
-    let parameters: [String: String]?
+class ReadHeadRequest: Request {
     
-    init(domain: String, path: String?, parameters: [String: String]?) {
-        self.domain = domain
-        self.path = path
-        self.parameters = parameters
+    let urlString: String
+
+    init(url: String) {
+        self.urlString = url
     }
     
     func send(_ completion: @escaping RequestCompletion) {
@@ -26,6 +22,7 @@ class GetRequest: Request {
         }
         
         var request = URLRequest(url: url)
+        request.httpMethod = "HEAD"
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             let headers = (response as? HTTPURLResponse)?.allHeaderFields
             if let error = error {
@@ -37,18 +34,6 @@ class GetRequest: Request {
             }
         }
         task.resume()
-    }
-    
-    private var urlString: String {
-        var result = domain
-        if let path = path {
-            result += "/" + path
-        }
-        if let parameters = parameters,
-            !parameters.isEmpty {
-            result += "?" + parameters.queryString
-        }
-        return result
     }
     
 }

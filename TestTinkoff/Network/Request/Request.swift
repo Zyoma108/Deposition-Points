@@ -13,7 +13,7 @@ enum RequestResult {
     case failure(error: Error)
 }
 
-typealias RequestCompletion = ((_ result: RequestResult) -> Void)
+typealias RequestCompletion = ((_ result: RequestResult, _ responseHeaders: [AnyHashable: Any]?) -> Void)
 
 protocol Request {
     func send(_ completion: @escaping RequestCompletion)
