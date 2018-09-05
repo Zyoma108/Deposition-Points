@@ -33,4 +33,9 @@ class DepositionPointAnnotationView: MKAnnotationView {
         layer.masksToBounds = true
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+    }
+    
 }
