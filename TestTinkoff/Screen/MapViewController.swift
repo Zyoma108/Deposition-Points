@@ -29,6 +29,7 @@ class MapViewController: UIViewController {
     }
     
     private func configure() {
+        viewModel.delegte = self
         mapView.delegate = self
         mapView.register(DepositionPointAnnotationView.self, forAnnotationViewWithReuseIdentifier: "deposition_point")
         locationManager.delegate = self
@@ -143,6 +144,14 @@ extension MapViewController: CLLocationManagerDelegate {
         if let location = locations.first {
             locationDidUpdated(location: location)
         }
+    }
+    
+}
+
+extension MapViewController: MapViewModelDelegate {
+    
+    func currentAnnotation() -> [MKAnnotation] {
+        return mapView.annotations
     }
     
 }
