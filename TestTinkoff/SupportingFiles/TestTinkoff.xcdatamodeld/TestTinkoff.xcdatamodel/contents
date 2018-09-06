@@ -9,12 +9,14 @@
     </entity>
     <entity name="PointEntity" representedClassName="PointEntity" syncable="YES" codeGenerationType="class">
         <attribute name="addressInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="externalId" attributeType="String" syncable="YES"/>
+        <attribute name="fullAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="partner" maxCount="1" deletionRule="Nullify" destinationEntity="PartnerEntity" inverseName="points" inverseEntity="PartnerEntity" syncable="YES"/>
     </entity>
     <elements>
         <element name="PartnerEntity" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="PointEntity" positionX="-54" positionY="18" width="128" height="105"/>
+        <element name="PointEntity" positionX="-54" positionY="18" width="128" height="135"/>
     </elements>
 </model>

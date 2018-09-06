@@ -17,18 +17,22 @@ struct Location: Decodable {
 
 struct Point: Decodable {
     
+    let externalId: String
     let partnerName: String
     let location: Location
     let addressInfo: String?
+    let fullAddress: String?
 
 }
 
 extension Point {
     
     func save(to entity: PointEntity) {
+        entity.externalId = self.externalId
         entity.latitude = self.location.latitude
         entity.longitude = self.location.longitude
         entity.addressInfo = self.addressInfo
+        entity.fullAddress = self.fullAddress
     }
     
 }
