@@ -16,6 +16,8 @@ class ImageCacher {
     private let imageUrl: String
     private let imageName: String
     
+    private static let formatter = DateFormatter.httpDateFormatter
+    
     init(imageUrl: String, completion: @escaping ((_ image: UIImage) -> Void)) {
         self.displayImage = completion
         self.imageUrl = imageUrl
@@ -72,12 +74,8 @@ class ImageCacher {
                 
                 let lastModifedString = headers?["Last-Modified"] as? String
                 
-                let formetter = DateFormatter()
-                formetter.locale = Locale(identifier: "en_EN")
-                formetter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss Z"
-                
                 if let dateString = lastModifedString,
-                    let lastModifiedDate = formetter.date(from: dateString) {
+                    let lastModifiedDate = ImageCacher.formatter.date(from: dateString) {
                     if creationDate > lastModifiedDate {
                         return
                     }

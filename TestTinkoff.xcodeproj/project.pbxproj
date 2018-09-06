@@ -23,6 +23,7 @@
 		EA729A60213C29AA00FB6909 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA729A5F213C29AA00FB6909 /* MapViewModel.swift */; };
 		EAC38CF9213FF8F800601E38 /* CacheImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC38CF8213FF8F800601E38 /* CacheImageView.swift */; };
 		EAC38CFB213FFA4700601E38 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC38CFA213FFA4700601E38 /* ImageCacher.swift */; };
+		EAC38CFE2140DC1700601E38 /* DateFormatter+httpDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC38CFD2140DC1700601E38 /* DateFormatter+httpDate.swift */; };
 		EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD63213AA410000804B3 /* DataStorage.swift */; };
 		EAC6AD69213AF759000804B3 /* PartnerGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD68213AF759000804B3 /* PartnerGateway.swift */; };
 		EAC6AD6B213B0514000804B3 /* PointGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD6A213B0514000804B3 /* PointGateway.swift */; };
@@ -61,6 +62,7 @@
 		EA729A5F213C29AA00FB6909 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		EAC38CF8213FF8F800601E38 /* CacheImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImageView.swift; sourceTree = "<group>"; };
 		EAC38CFA213FFA4700601E38 /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
+		EAC38CFD2140DC1700601E38 /* DateFormatter+httpDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+httpDate.swift"; sourceTree = "<group>"; };
 		EAC6AD63213AA410000804B3 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		EAC6AD68213AF759000804B3 /* PartnerGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerGateway.swift; sourceTree = "<group>"; };
 		EAC6AD6A213B0514000804B3 /* PointGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointGateway.swift; sourceTree = "<group>"; };
@@ -161,6 +163,14 @@
 				EAC38CF8213FF8F800601E38 /* CacheImageView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EAC38CFC2140DBCE00601E38 /* DateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				EAC38CFD2140DC1700601E38 /* DateFormatter+httpDate.swift */,
+			);
+			path = DateFormatter;
 			sourceTree = "<group>";
 		};
 		EAC6AD60213AA389000804B3 /* API */ = {
@@ -304,6 +314,7 @@
 				EAE26AB3213D684600AD7DFB /* Dictionary */,
 				EAE26AB0213D678C00AD7DFB /* MKMapView */,
 				EAE26AB4213D685300AD7DFB /* CLLocationCoordinate2D */,
+				EAC38CFC2140DBCE00601E38 /* DateFormatter */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -398,6 +409,7 @@
 				EA729A5B213C069C00FB6909 /* Gateway.swift in Sources */,
 				EAF282652139600D00951C9A /* AppDelegate.swift in Sources */,
 				EAC6AD6B213B0514000804B3 /* PointGateway.swift in Sources */,
+				EAC38CFE2140DC1700601E38 /* DateFormatter+httpDate.swift in Sources */,
 				EA490684213996D1009685E8 /* API.swift in Sources */,
 				EAF2827B213960F700951C9A /* GetRequest.swift in Sources */,
 				EAC38CFB213FFA4700601E38 /* ImageCacher.swift in Sources */,
