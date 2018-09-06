@@ -31,23 +31,21 @@ class MapViewController: UIViewController {
     private func configure() {
         viewModel.delegate = self
         mapView.delegate = self
-        mapView.register(DepositionPointAnnotationView.self, forAnnotationViewWithReuseIdentifier: "deposition_point")
+        mapView.register(DepositionPointAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: DepositionPointAnnotationView.reuseIdentifier)
         locationManager.delegate = self
     }
     
     private func openChangePermissionsAlert() {
-        let title = "Невозможно определить местоположение"
-        let message = "Для отображения текущей позиции приложению необходимо дать доступ к геоданным в настройках"
-
-        let firstButton = AlertButton(title: "Настройки") { _ in
+        let settingsButton = AlertButton(title: viewModel.settingsTitle) { _ in
             guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
             UIApplication.shared.open(url)
         }
-        let secondButton = AlertButton(title: "Отмена", style: .cancel)
-        let parameters = AlertParameters(title: title,
-                                         message: message,
-                                         firstButton: firstButton,
-                                         secondButton: secondButton)
+        let cancelButton = AlertButton(title: viewModel.cancelTitle, style: .cancel)
+        let parameters = AlertParameters(title: viewModel.locationPermissionTitle,
+                                         message: viewModel.locationPermissionMessage,
+                                         firstButton: settingsButton,
+                                         secondButton: cancelButton)
         let vc = AlertControllerFactory.alertVCWith(parameters: parameters)
         present(vc, animated: true)
     }
@@ -100,7 +98,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         switch annotation {
         case let annotation as DepositionPointAnnotation:
-            let view = mapView.dequeueReusableAnnotationView(withIdentifier: "deposition_point") as? DepositionPointAnnotationView
+            let view = mapView.dequeueReusableAnnotationView(withIdentifier: DepositionPointAnnotationView.reuseIdentifier) as? DepositionPointAnnotationView
             view?.imageView.setImageWith(url: annotation.imageUrl)
             return view
         default:
@@ -143,9 +141,9 @@ extension MapViewController: MapViewModelDelegate {
     }
     
     func onError(error: Error) {
-        let parameters = AlertParameters(title: "Ошибка",
+        let parameters = AlertParameters(title: viewModel.errorTitle,
                                          message: error.localizedDescription,
-                                         firstButton: AlertButton(title: "Ok"))
+                                         firstButton: AlertButton(title: viewModel.okTitle))
         let vc = AlertControllerFactory.alertVCWith(parameters: parameters)
         present(vc, animated: true)
     }

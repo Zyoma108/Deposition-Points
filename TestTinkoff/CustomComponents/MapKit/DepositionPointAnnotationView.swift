@@ -11,6 +11,10 @@ import MapKit
 
 class DepositionPointAnnotationView: MKAnnotationView {
     
+    static var reuseIdentifier: String {
+        return "deposition_point"
+    }
+    
     lazy var imageView: CacheImageView = {
         let cacheImageView = CacheImageView(frame: bounds)
         addSubview(cacheImageView)
@@ -26,7 +30,7 @@ class DepositionPointAnnotationView: MKAnnotationView {
         super.init(coder: aDecoder)
         setup()
     }
-    
+
     private func setup() {
         frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         layer.cornerRadius = 15
