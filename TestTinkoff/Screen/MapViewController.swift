@@ -29,28 +29,10 @@ class MapViewController: UIViewController {
     }
     
     private func configure() {
-        viewModel.delegte = self
+        viewModel.delegate = self
         mapView.delegate = self
         mapView.register(DepositionPointAnnotationView.self, forAnnotationViewWithReuseIdentifier: "deposition_point")
         locationManager.delegate = self
-        
-        viewModel.annotationsUpdated = { [unowned self] new, toRemove in
-            self.mapView.removeAnnotations(toRemove)
-            self.mapView.addAnnotations(new)
-        }
-        
-        viewModel.onError = { error in
-            print("Error \(error.localizedDescription)")
-        }
-        
-        viewModel.loadingChanged = { [unowned self] isLoading in
-            if isLoading {
-                self.activityIndicator.startAnimating()
-            } else {
-                self.activityIndicator.stopAnimating()
-            }
-        }
-        
     }
     
     private func openChangePermissionsAlert() {
@@ -152,6 +134,23 @@ extension MapViewController: MapViewModelDelegate {
     
     func currentAnnotation() -> [MKAnnotation] {
         return mapView.annotations
+    }
+    
+    func updateAnnotations(new: [MKAnnotation], toRemove: [MKAnnotation]) {
+        mapView.removeAnnotations(toRemove)
+        mapView.addAnnotations(new)
+    }
+    
+    func onError(error: Error) {
+        print("Error \(error.localizedDescription)")
+    }
+    
+    func loadingChanged(isLoading: Bool) {
+        if isLoading {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
     }
     
 }

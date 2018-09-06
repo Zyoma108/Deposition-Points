@@ -14,23 +14,19 @@ class MapViewModel {
     private let processQueue = DispatchQueue.global(qos: .userInteractive)
     private let mainQueue = DispatchQueue.main
     private var isLoading: Bool = false
+    private var gateway: PointGateway?
+    private let partnerGateway = PartnerGateway()
     
     var currentLocation: CLLocation?
     var needSetCurrentLocation: Bool = false
     
-    var gateway: PointGateway?
-    let partnerGateway = PartnerGateway()
-    
-    weak var delegte: MapViewModelDelegate!
-    var annotationsUpdated: ((_ new: [MKAnnotation], _ toRemove: [MKAnnotation]) -> Void)?
-    var onError: ((_ error: Error) -> Void)?
-    var loadingChanged: ((_ isLoading: Bool) -> Void)?
+    weak var delegate: MapViewModelDelegate!
     
     func needUpdatePoints(latitude: Double, longitude: Double, radius: Double) {
         guard !isLoading else { return }
         
         isLoading = true
-        loadingChanged?(isLoading)
+        delegate.loadingChanged(isLoading: isLoading)
         gateway = PointGateway(latitude: latitude, longitude: longitude, radius: Int(radius))
         if !partnerGateway.dataReceived {
             requestPartners()
@@ -49,13 +45,13 @@ class MapViewModel {
             case .failure(let error):
                 self.isLoading = false
                 self.notifyAboutLoading()
-                self.onError?(error)
+                self.delegate.onError(error: error)
             }
         }
     }
     
     private func prepareAnnotations(points: [PointEntity]) {
-        let displayAnnotations = delegte.currentAnnotation().compactMap({ $0 as? DepositionPointAnnotation })
+        let displayAnnotations = delegate.currentAnnotation().compactMap({ $0 as? DepositionPointAnnotation })
         processQueue.async { [weak self] in
             guard let `self` = self else { return }
             
@@ -85,14 +81,11 @@ class MapViewModel {
             new = receivedAnnotations.filter({ receivedAnnotation in
                 return displayAnnotations.first(where: { $0.id == receivedAnnotation.id }) == nil
             })
-            
-            print("remove \(toRemove.count) points")
-            print("insert \(new.count) points")
-            
+
             self.mainQueue.async { [weak self] in
                 self?.isLoading = false
                 self?.notifyAboutLoading()
-                self?.annotationsUpdated?(new, toRemove)
+                self?.delegate.updateAnnotations(new: new, toRemove: toRemove)
             }
         }
     }
@@ -108,14 +101,14 @@ class MapViewModel {
                 self.requestPoints()
             case .failure(let error):
                 self.isLoading = false
-                self.onError?(error)
+                self.delegate.onError(error: error)
                 self.notifyAboutLoading()
             }
         }
     }
     
     private func notifyAboutLoading() {
-        self.loadingChanged?(isLoading)
+        delegate.loadingChanged(isLoading: isLoading)
     }
     
 }
@@ -123,5 +116,11 @@ class MapViewModel {
 protocol MapViewModelDelegate: class {
     
     func currentAnnotation() -> [MKAnnotation]
+    
+    func updateAnnotations(new: [MKAnnotation], toRemove: [MKAnnotation])
+    
+    func onError(error: Error)
+    
+    func loadingChanged(isLoading: Bool)
     
 }
