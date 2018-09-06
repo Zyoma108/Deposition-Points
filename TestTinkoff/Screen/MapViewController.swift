@@ -38,16 +38,17 @@ class MapViewController: UIViewController {
     private func openChangePermissionsAlert() {
         let title = "Невозможно определить местоположение"
         let message = "Для отображения текущей позиции приложению необходимо дать доступ к геоданным в настройках"
-        let vc = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "Настройки", style: .default) { _ in
+
+        let firstButton = AlertButton(title: "Настройки") { _ in
             guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
             UIApplication.shared.open(url)
         }
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        vc.addAction(okAction)
-        vc.addAction(cancelAction)
-
+        let secondButton = AlertButton(title: "Отмена", style: .cancel)
+        let parameters = AlertParameters(title: title,
+                                         message: message,
+                                         firstButton: firstButton,
+                                         secondButton: secondButton)
+        let vc = AlertControllerFactory.alertVCWith(parameters: parameters)
         present(vc, animated: true)
     }
     
@@ -142,7 +143,11 @@ extension MapViewController: MapViewModelDelegate {
     }
     
     func onError(error: Error) {
-        print("Error \(error.localizedDescription)")
+        let parameters = AlertParameters(title: "Ошибка",
+                                         message: error.localizedDescription,
+                                         firstButton: AlertButton(title: "Ok"))
+        let vc = AlertControllerFactory.alertVCWith(parameters: parameters)
+        present(vc, animated: true)
     }
     
     func loadingChanged(isLoading: Bool) {

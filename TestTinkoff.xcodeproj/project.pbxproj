@@ -24,6 +24,7 @@
 		EAC38CF9213FF8F800601E38 /* CacheImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC38CF8213FF8F800601E38 /* CacheImageView.swift */; };
 		EAC38CFB213FFA4700601E38 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC38CFA213FFA4700601E38 /* ImageCacher.swift */; };
 		EAC38CFE2140DC1700601E38 /* DateFormatter+httpDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC38CFD2140DC1700601E38 /* DateFormatter+httpDate.swift */; };
+		EAC38D012140F12200601E38 /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC38D002140F12200601E38 /* AlertControllerFactory.swift */; };
 		EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD63213AA410000804B3 /* DataStorage.swift */; };
 		EAC6AD69213AF759000804B3 /* PartnerGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD68213AF759000804B3 /* PartnerGateway.swift */; };
 		EAC6AD6B213B0514000804B3 /* PointGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD6A213B0514000804B3 /* PointGateway.swift */; };
@@ -63,6 +64,7 @@
 		EAC38CF8213FF8F800601E38 /* CacheImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImageView.swift; sourceTree = "<group>"; };
 		EAC38CFA213FFA4700601E38 /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		EAC38CFD2140DC1700601E38 /* DateFormatter+httpDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+httpDate.swift"; sourceTree = "<group>"; };
+		EAC38D002140F12200601E38 /* AlertControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
 		EAC6AD63213AA410000804B3 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		EAC6AD68213AF759000804B3 /* PartnerGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerGateway.swift; sourceTree = "<group>"; };
 		EAC6AD6A213B0514000804B3 /* PointGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointGateway.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				EA49068F2139A497009685E8 /* JsonParser.swift */,
 				EAC38CFA213FFA4700601E38 /* ImageCacher.swift */,
+				EAC38D002140F12200601E38 /* AlertControllerFactory.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				EA49068C2139A3E5009685E8 /* StringError.swift in Sources */,
 				EA49068A21399D58009685E8 /* TinkoffAPIMethod.swift in Sources */,
 				EAF2827D213966BB00951C9A /* Request.swift in Sources */,
+				EAC38D012140F12200601E38 /* AlertControllerFactory.swift in Sources */,
 				EA729A5B213C069C00FB6909 /* Gateway.swift in Sources */,
 				EAF282652139600D00951C9A /* AppDelegate.swift in Sources */,
 				EAC6AD6B213B0514000804B3 /* PointGateway.swift in Sources */,
