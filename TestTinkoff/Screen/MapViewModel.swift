@@ -111,6 +111,18 @@ class MapViewModel {
         delegate.loadingChanged(isLoading: isLoading)
     }
     
+    var okTitle: String { return "Ок" }
+    var errorTitle: String { return "Ошибка" }
+    var settingsTitle: String { return "Настройки" }
+    var cancelTitle: String { return "Отмена" }
+    
+    var locationPermissionTitle: String {
+        return "Невозможно определить местоположение"
+    }
+    var locationPermissionMessage: String {
+        return "Для отображения текущей позиции приложению необходимо дать доступ к геоданным в настройках"
+    }
+    
 }
 
 protocol MapViewModelDelegate: class {
