@@ -33,9 +33,9 @@ class MapViewController: UIViewController {
         mapView.register(DepositionPointAnnotationView.self, forAnnotationViewWithReuseIdentifier: "deposition_point")
         locationManager.delegate = self
         
-        viewModel.annotationsUpdated = { [unowned self] annotations in
-            self.mapView.removeAnnotations(self.mapView.annotations)
-            self.mapView.addAnnotations(annotations)
+        viewModel.annotationsUpdated = { [unowned self] new, toRemove in
+            self.mapView.removeAnnotations(toRemove)
+            self.mapView.addAnnotations(new)
         }
         
         viewModel.onError = { error in
