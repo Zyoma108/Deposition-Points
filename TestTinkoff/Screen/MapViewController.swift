@@ -106,6 +106,18 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let depositionPointAnnotation = view.annotation as? DepositionPointAnnotation,
+            let pointName = depositionPointAnnotation.pointName,
+            let pointAddress = depositionPointAnnotation.address else { return }
+        
+        let parameters = AlertParameters(title: pointName,
+                                         message: pointAddress,
+                                         firstButton: AlertButton(title: viewModel.okTitle))
+        let vc = AlertControllerFactory.alertVCWith(parameters: parameters)
+        present(vc, animated: true)
+    }
+    
 }
 
 extension MapViewController: CLLocationManagerDelegate {

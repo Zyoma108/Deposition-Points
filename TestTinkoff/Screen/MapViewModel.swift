@@ -68,7 +68,9 @@ class MapViewModel {
                 return DepositionPointAnnotation(id: id,
                                                  latitude: point.latitude,
                                                  longitude: point.longitude,
-                                                 imageUrl: imageUrl)
+                                                 imageUrl: imageUrl,
+                                                 pointName: point.partner?.name,
+                                                 address: point.fullAddress)
             }
             
             var new = [DepositionPointAnnotation]()
