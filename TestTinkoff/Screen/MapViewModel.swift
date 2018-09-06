@@ -58,7 +58,7 @@ class MapViewModel {
                 
                 let imageUrl: String?
                 if let pictureName = point.partner?.picture {
-                    imageUrl = Constants.fileDomain + "/icons/deposition-partners-v3/xxhdpi/" + pictureName
+                    imageUrl = Constants.fileDomain + "/icons/deposition-partners-v3/\(self.imagesResolution)/" + pictureName
                 } else {
                     imageUrl = nil
                 }
@@ -110,6 +110,19 @@ class MapViewModel {
     private func notifyAboutLoading() {
         delegate.loadingChanged(isLoading: isLoading)
     }
+    
+    private lazy var imagesResolution: String = {
+        let resolution: String
+        switch Int(UIScreen.main.scale) {
+        case Int.min...1:
+            resolution = "mdpi"
+        case 2:
+            resolution = "hdpi"
+        default:
+            resolution = "xhdpi"
+        }
+        return resolution
+    }()
     
     var okTitle: String { return "Ок" }
     var errorTitle: String { return "Ошибка" }
