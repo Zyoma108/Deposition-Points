@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EA420377213EC935001E78BD /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA420376213EC935001E78BD /* ImageStorage.swift */; };
-		EA42037A213ED25D001E78BD /* UIImageView+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA420379213ED25D001E78BD /* UIImageView+Cache.swift */; };
 		EA490684213996D1009685E8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA490683213996D1009685E8 /* API.swift */; };
 		EA49068621399897009685E8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068521399897009685E8 /* Constants.swift */; };
 		EA49068821399A9E009685E8 /* APIMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49068721399A9E009685E8 /* APIMethod.swift */; };
@@ -22,6 +21,8 @@
 		EA49069C2139B167009685E8 /* PointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA49069B2139B167009685E8 /* PointService.swift */; };
 		EA729A5B213C069C00FB6909 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA729A5A213C069C00FB6909 /* Gateway.swift */; };
 		EA729A60213C29AA00FB6909 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA729A5F213C29AA00FB6909 /* MapViewModel.swift */; };
+		EAC38CF9213FF8F800601E38 /* CacheImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC38CF8213FF8F800601E38 /* CacheImageView.swift */; };
+		EAC38CFB213FFA4700601E38 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC38CFA213FFA4700601E38 /* ImageCacher.swift */; };
 		EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD63213AA410000804B3 /* DataStorage.swift */; };
 		EAC6AD69213AF759000804B3 /* PartnerGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD68213AF759000804B3 /* PartnerGateway.swift */; };
 		EAC6AD6B213B0514000804B3 /* PointGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6AD6A213B0514000804B3 /* PointGateway.swift */; };
@@ -45,7 +46,6 @@
 
 /* Begin PBXFileReference section */
 		EA420376213EC935001E78BD /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
-		EA420379213ED25D001E78BD /* UIImageView+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cache.swift"; sourceTree = "<group>"; };
 		EA490683213996D1009685E8 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EA49068521399897009685E8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EA49068721399A9E009685E8 /* APIMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMethod.swift; sourceTree = "<group>"; };
@@ -59,6 +59,8 @@
 		EA49069B2139B167009685E8 /* PointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointService.swift; sourceTree = "<group>"; };
 		EA729A5A213C069C00FB6909 /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 		EA729A5F213C29AA00FB6909 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		EAC38CF8213FF8F800601E38 /* CacheImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImageView.swift; sourceTree = "<group>"; };
+		EAC38CFA213FFA4700601E38 /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		EAC6AD63213AA410000804B3 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		EAC6AD68213AF759000804B3 /* PartnerGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerGateway.swift; sourceTree = "<group>"; };
 		EAC6AD6A213B0514000804B3 /* PointGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointGateway.swift; sourceTree = "<group>"; };
@@ -94,18 +96,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EA420378213ED248001E78BD /* UIImageView */ = {
-			isa = PBXGroup;
-			children = (
-				EA420379213ED25D001E78BD /* UIImageView+Cache.swift */,
-			);
-			path = UIImageView;
-			sourceTree = "<group>";
-		};
 		EA49068E2139A484009685E8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				EA49068F2139A497009685E8 /* JsonParser.swift */,
+				EAC38CFA213FFA4700601E38 /* ImageCacher.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -160,6 +155,14 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		EAC38CF7213FF8D600601E38 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAC38CF8213FF8F800601E38 /* CacheImageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EAC6AD60213AA389000804B3 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				EADB07C4213EA2C300AC10F1 /* MapKit */,
+				EAC38CF7213FF8D600601E38 /* View */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -300,7 +304,6 @@
 				EAE26AB3213D684600AD7DFB /* Dictionary */,
 				EAE26AB0213D678C00AD7DFB /* MKMapView */,
 				EAE26AB4213D685300AD7DFB /* CLLocationCoordinate2D */,
-				EA420378213ED248001E78BD /* UIImageView */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -377,8 +380,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA49069C2139B167009685E8 /* PointService.swift in Sources */,
+				EAC38CF9213FF8F800601E38 /* CacheImageView.swift in Sources */,
 				EA420377213EC935001E78BD /* ImageStorage.swift in Sources */,
-				EA42037A213ED25D001E78BD /* UIImageView+Cache.swift in Sources */,
 				EA49069A2139B0C5009685E8 /* Point.swift in Sources */,
 				EAF282672139600D00951C9A /* MapViewController.swift in Sources */,
 				EAC6AD64213AA410000804B3 /* DataStorage.swift in Sources */,
@@ -397,6 +400,7 @@
 				EAC6AD6B213B0514000804B3 /* PointGateway.swift in Sources */,
 				EA490684213996D1009685E8 /* API.swift in Sources */,
 				EAF2827B213960F700951C9A /* GetRequest.swift in Sources */,
+				EAC38CFB213FFA4700601E38 /* ImageCacher.swift in Sources */,
 				EADB07C0213E9CB000AC10F1 /* DepositionPointAnnotation.swift in Sources */,
 				EADB07C2213E9D6A00AC10F1 /* DepositionPointAnnotationView.swift in Sources */,
 				EAEEA3A3213F9148009EECD8 /* ReadHeadRequest.swift in Sources */,

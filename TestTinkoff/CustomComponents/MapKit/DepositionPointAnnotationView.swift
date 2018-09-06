@@ -11,10 +11,10 @@ import MapKit
 
 class DepositionPointAnnotationView: MKAnnotationView {
     
-    lazy var imageView: UIImageView = {
-        let image = UIImageView(frame: bounds)
-        addSubview(image)
-        return image
+    lazy var imageView: CacheImageView = {
+        let cacheImageView = CacheImageView(frame: bounds)
+        addSubview(cacheImageView)
+        return cacheImageView
     }()
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
@@ -35,7 +35,7 @@ class DepositionPointAnnotationView: MKAnnotationView {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageView.image = nil
+        imageView.setImageWith(url: nil)
     }
     
 }
