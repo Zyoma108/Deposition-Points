@@ -33,7 +33,7 @@ class PointGateway: Gateway {
         var partners = [PartnerEntity]()
         
         group.enter()
-        DataStorage.shared.fetch(request: PartnerEntity.fetchRequest()) { result in
+        DataStorage.shared.fetch(request: PartnerEntity.fetchRequest(), goal: .write) { result in
             partners = result
             group.leave()
         }

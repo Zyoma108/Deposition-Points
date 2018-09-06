@@ -73,7 +73,7 @@ extension Gateway {
         var entities = [EntityType]()
         
         group.enter()
-        DataStorage.shared.fetch(request: fetchRequest) { result in
+        DataStorage.shared.fetch(request: fetchRequest, goal: .read) { result in
             entities = result
             group.leave()
         }
