@@ -53,9 +53,9 @@ class MapViewController: UIViewController {
     private func locationDidUpdated(location: CLLocation) {
         viewModel.currentLocation = location
         
-        if viewModel.needSetCurrentLocation {
+        if viewModel.locationReceivedFirstTime {
             mapView.setPosision(coordinate: location.coordinate)
-            viewModel.needSetCurrentLocation = false
+            viewModel.locationReceivedFirstTime = false
         }
     }
     
@@ -82,8 +82,6 @@ class MapViewController: UIViewController {
         
         if let currentLocation = viewModel.currentLocation {
             mapView.setPosision(coordinate: currentLocation.coordinate)
-        } else {
-            viewModel.needSetCurrentLocation = true
         }
     }
     

@@ -18,13 +18,11 @@ class MapViewModel {
     private let partnerGateway = PartnerGateway()
     
     var currentLocation: CLLocation?
-    var needSetCurrentLocation: Bool = false
+    var locationReceivedFirstTime: Bool = true
     
     weak var delegate: MapViewModelDelegate!
     
     func needUpdatePoints(latitude: Double, longitude: Double, radius: Double) {
-        guard !isLoading else { return }
-        
         isLoading = true
         delegate.loadingChanged(isLoading: isLoading)
         gateway = PointGateway(latitude: latitude, longitude: longitude, radius: Int(radius))
